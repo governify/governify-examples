@@ -3,8 +3,8 @@ var fs = require("fs");
 //Configurations (Modify these)
 const projectName = "Bluejay";
 const projectDescription = "Metrics and guarantees for the project Bluejay.";
-const folder = "./bluejay/"
-const inputFilename = "metricsLibrary.json";
+const folder = "../bluejay/"
+const inputFilename = "metricsGuarantees.json";
 const outputFilename = "README.md";
 const outputJsonIndentSize = 2;
 
