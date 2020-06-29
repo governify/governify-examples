@@ -2,6 +2,48 @@
 
 Metrics and guarantees for the project Bluejay.
 
+## Index
+
+  * **[Metrics](#metrics)**
+    * [NUMBER_PIVOTAL_STARTED_STORIES](#number_pivotal_started_stories)
+    * [NUMBER_PIVOTAL_FINISHED_STORIES](#number_pivotal_finished_stories)
+    * [NUMBER_PIVOTAL_ACCEPTED_STORIES](#number_pivotal_accepted_stories)
+    * [NUMBER_PIVOTAL_DELIVERED_STORIES](#number_pivotal_delivered_stories)
+    * [NUMBER_GITHUB_NEW_BRANCH](#number_github_new_branch)
+    * [NUMBER_GITHUB_OPEN_PR](#number_github_open_pr)
+    * [NUMBER_GITHUB_MERGE_PR_OLD](#number_github_merge_pr_old)
+    * [NUMBER_GITHUB_MERGE_PR](#number_github_merge_pr)
+    * [NUMBER_HEROKU_RELEASES](#number_heroku_releases)
+    * [NUMBER_TRAVIS_BUILDS](#number_travis_builds)
+    * [NUMBER_TRAVIS_FAILED_BUILDS](#number_travis_failed_builds)
+    * [NUMBER_CC_COVERAGE](#number_cc_coverage)
+    * [NUMBER_CC_COVERAGE_OVER_80](#number_cc_coverage_over_80)
+    * [PERCENTAGE_NEWBRANCH_STARTEDSTORIES](#percentage_newbranch_startedstories)
+    * [PERCENTAGE_NEWBRANCHWR_STARTEDSTORIES](#percentage_newbranchwr_startedstories)
+    * [PERCENTAGE_NEWBRANCH_STARTEDSTORIES_BIND](#percentage_newbranch_startedstories_bind)
+    * [PERCENTAGE_OPENPR_FINISHEDSTORIES](#percentage_openpr_finishedstories)
+    * [PERCENTAGE_OPENPR_FINISHEDSTORIES_BIND](#percentage_openpr_finishedstories_bind)
+    * [PERCENTAGE_MERGEPR_DELIVEREDSTORIES](#percentage_mergepr_deliveredstories)
+    * [PERCENTAGE_MERGEPR_DELIVEREDSTORIES_BIND](#percentage_mergepr_deliveredstories_bind)
+    * [PERCENTAGE_RELEASES_DELIVEREDSTORIES](#percentage_releases_deliveredstories)
+    * [PERCENTAGE_RELEASES_DELIVEREDSTORIES_BIND](#percentage_releases_deliveredstories_bind)
+    * [PERCENTAGE_FAILEDBUILDS_BUILDS](#percentage_failedbuilds_builds)
+    * [PERCENTAGE_80COVERAGE_COVERAGE](#percentage_80coverage_coverage)
+    * [VALUE_CC_COVERAGE](#value_cc_coverage)
+    * [VALUE_OFFSET_CC_COVERAGE](#value_offset_cc_coverage)
+  * **[Guarantees](#guarantees)**
+    * [75_PERCENT_NEWBRANCH_STARTED_STORIES_WITHIN_A_DAY_WRAPPER](#75_percent_newbranch_started_stories_within_a_day_wrapper)
+    * [75_PERCENT_NEWBRANCH_STARTED_STORIES_WITHIN_A_DAY](#75_percent_newbranch_started_stories_within_a_day)
+    * [75_PERCENT_NEWBRANCH_STARTED_STORIES_WITHIN_A_DAY_BIND](#75_percent_newbranch_started_stories_within_a_day_bind)
+    * [75_PERCENT_MASTER_PR_OPEN_FINSH_STORIES_WITHIN_A_DAY](#75_percent_master_pr_open_finsh_stories_within_a_day)
+    * [75_PERCENT_MASTER_PR_OPEN_FINSH_STORIES_WITHIN_A_DAY_BIND](#75_percent_master_pr_open_finsh_stories_within_a_day_bind)
+    * [75_PERCENT_MASTER_PR_MERGE_DELVR_STORIES_WITHIN_A_DAY](#75_percent_master_pr_merge_delvr_stories_within_a_day)
+    * [75_PERCENT_MASTER_PR_MERGE_DELVR_STORIES_WITHIN_A_DAY_BIND](#75_percent_master_pr_merge_delvr_stories_within_a_day_bind)
+    * [75_PERCENT_MASTER_PR_MERGE_DEPLOY_WITHIN_A_DAY](#75_percent_master_pr_merge_deploy_within_a_day)
+    * [75_PERCENT_MASTER_PR_MERGE_DEPLOY_WITHIN_A_DAY_BIND](#75_percent_master_pr_merge_deploy_within_a_day_bind)
+    * [MORE_THAN_70_PERCENT_CC_CODE_COVERED](#more_than_70_percent_cc_code_covered)
+    * [MORE_THAN_70_PERCENT_CC_CODE_COVERED_OFFSET](#more_than_70_percent_cc_code_covered_offset)
+    * [SUBSTRACTION_HIGHER_EQUAL_ZERO](#substraction_higher_equal_zero)
 ## Metrics
 
 ### NUMBER_PIVOTAL_STARTED_STORIES

@@ -15,25 +15,42 @@ const json = JSON.parse(fs.readFileSync(folder + inputFilename, 'utf-8'));
 var readme = "# " + projectName + " metrics and guarantees\n\n";
 readme += projectDescription + "\n\n";
 
-// Metrics
-readme += "## Metrics\n\n";
+// Index
+readme += "## Index\n\n";
 
+// Metrics
+readme += "  * **[Metrics](#metrics)**\n";
+let metricsString = "";
 
 for (const metric of json.metrics){
-    readme += "### " + metric.name;
-    readme += "\n" + metric.description + "\n";
-    readme += "``` json\n" + JSON.stringify(metric.dsl, undefined, outputJsonIndentSize) + "\n```";
-    readme += "\n\n"
+    //Add metric to index
+    readme += "    * [" + metric.name + "](#" + metric.name.toLowerCase() + ")\n";
+    // Add metric to metrics String
+    metricsString += "### " + metric.name;
+    metricsString += "\n" + metric.description + "\n";
+    metricsString += "``` json\n" + JSON.stringify(metric.dsl, undefined, outputJsonIndentSize) + "\n```";
+    metricsString += "\n\n"
 }
 
 // Guarantees
-readme += "## Guarantees\n\n";
+readme += "  * **[Guarantees](#guarantees)**\n";
+let guaranteesString = "";
 
 for (const guarantee of json.guarantees){
-    readme += "### " + guarantee.id;
-    readme += "\n" + guarantee.description + "\n";
-    readme += "``` json\n" + JSON.stringify(guarantee, undefined, outputJsonIndentSize) + "\n```";
-    readme += "\n\n"
+    //Add guarantee to index
+    readme += "    * [" + guarantee.id + "](#" + guarantee.id.toLowerCase() + ")\n";
+    // Add guarantee to metrics String
+    guaranteesString += "### " + guarantee.id;
+    guaranteesString += "\n" + guarantee.description + "\n";
+    guaranteesString += "``` json\n" + JSON.stringify(guarantee, undefined, outputJsonIndentSize) + "\n```";
+    guaranteesString += "\n\n"
 }
+
+
+//Combine parts of the readme
+readme += "## Metrics\n\n";
+readme += metricsString;
+readme += "## Guarantees\n\n";
+readme += guaranteesString;
 
 fs.writeFileSync(folder + outputFilename, readme);
