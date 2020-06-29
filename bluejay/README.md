@@ -5,7 +5,7 @@ Metrics and guarantees for the project Bluejay.
 ## Metrics
 
 ### NUMBER_PIVOTAL_STARTED_STORIES
-eee
+This is a description
 ``` json
 {
   "NUMBER_PIVOTAL_STARTED_STORIES": {
