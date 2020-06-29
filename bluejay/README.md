@@ -44,10 +44,12 @@ Metrics and guarantees for the project Bluejay.
     * [MORE_THAN_70_PERCENT_CC_CODE_COVERED](#more_than_70_percent_cc_code_covered)
     * [MORE_THAN_70_PERCENT_CC_CODE_COVERED_OFFSET](#more_than_70_percent_cc_code_covered_offset)
     * [SUBSTRACTION_HIGHER_EQUAL_ZERO](#substraction_higher_equal_zero)
+    
 ## Metrics
 
+### Number
 ### NUMBER_PIVOTAL_STARTED_STORIES
-eee
+This is a description
 ``` json
 {
   "NUMBER_PIVOTAL_STARTED_STORIES": {
@@ -404,6 +406,8 @@ eee
   }
 }
 ```
+
+### Percentage
 
 ### PERCENTAGE_NEWBRANCH_STARTEDSTORIES
 
@@ -836,6 +840,7 @@ eee
   }
 }
 ```
+### Value
 
 ### VALUE_CC_COVERAGE
 
