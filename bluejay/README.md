@@ -2,8 +2,20 @@
 
 Metrics and guarantees for the project Bluejay.
 
+## Index
+**[Metrics](#metrics)**
+
+[Number Metrics](#number)
+
+[Percentage Metrics](#percentage)
+
+[Value Metrics](#value)
+
+**[Guarantees](#guarantees)**
+
 ## Metrics
 
+### Number
 ### NUMBER_PIVOTAL_STARTED_STORIES
 This is a description
 ``` json
@@ -362,6 +374,8 @@ This is a description
   }
 }
 ```
+
+### Percentage
 
 ### PERCENTAGE_NEWBRANCH_STARTEDSTORIES
 
@@ -794,6 +808,7 @@ This is a description
   }
 }
 ```
+### Value
 
 ### VALUE_CC_COVERAGE
 
