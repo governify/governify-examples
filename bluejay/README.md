@@ -11,7 +11,6 @@ Metrics and guarantees for the project Bluejay.
     * [NUMBER_PIVOTAL_DELIVERED_STORIES](#number_pivotal_delivered_stories)
     * [NUMBER_GITHUB_NEW_BRANCH](#number_github_new_branch)
     * [NUMBER_GITHUB_OPEN_PR](#number_github_open_pr)
-    * [NUMBER_GITHUB_MERGE_PR_OLD](#number_github_merge_pr_old)
     * [NUMBER_GITHUB_MERGE_PR](#number_github_merge_pr)
     * [NUMBER_HEROKU_RELEASES](#number_heroku_releases)
     * [NUMBER_TRAVIS_BUILDS](#number_travis_builds)
@@ -41,15 +40,11 @@ Metrics and guarantees for the project Bluejay.
     * [75_PERCENT_MASTER_PR_MERGE_DELVR_STORIES_WITHIN_A_DAY_BIND](#75_percent_master_pr_merge_delvr_stories_within_a_day_bind)
     * [75_PERCENT_MASTER_PR_MERGE_DEPLOY_WITHIN_A_DAY](#75_percent_master_pr_merge_deploy_within_a_day)
     * [75_PERCENT_MASTER_PR_MERGE_DEPLOY_WITHIN_A_DAY_BIND](#75_percent_master_pr_merge_deploy_within_a_day_bind)
-    * [MORE_THAN_70_PERCENT_CC_CODE_COVERED](#more_than_70_percent_cc_code_covered)
-    * [MORE_THAN_70_PERCENT_CC_CODE_COVERED_OFFSET](#more_than_70_percent_cc_code_covered_offset)
-    * [SUBSTRACTION_HIGHER_EQUAL_ZERO](#substraction_higher_equal_zero)
-    
+    * [COVERAGE_DELTA_VARIATION_HIGHER_EQUAL_ZERO](#coverage_delta_variation_higher_equal_zero)
 ## Metrics
 
-### Number
 ### NUMBER_PIVOTAL_STARTED_STORIES
-This is a description
+Returns the total number of Pivotal started stories for the period requested.
 ``` json
 {
   "NUMBER_PIVOTAL_STARTED_STORIES": {
@@ -75,7 +70,7 @@ This is a description
 ```
 
 ### NUMBER_PIVOTAL_FINISHED_STORIES
-
+Returns the total number of Pivotal finished stories for the period requested.
 ``` json
 {
   "NUMBER_PIVOTAL_FINISHED_STORIES": {
@@ -101,7 +96,7 @@ This is a description
 ```
 
 ### NUMBER_PIVOTAL_ACCEPTED_STORIES
-
+Returns the total number of Pivotal accepted stories for the period requested.
 ``` json
 {
   "NUMBER_PIVOTAL_ACCEPTED_STORIES": {
@@ -127,7 +122,7 @@ This is a description
 ```
 
 ### NUMBER_PIVOTAL_DELIVERED_STORIES
-
+Returns the total number of Pivotal delivered stories for the period requested.
 ``` json
 {
   "NUMBER_PIVOTAL_DELIVERED_STORIES": {
@@ -153,7 +148,7 @@ This is a description
 ```
 
 ### NUMBER_GITHUB_NEW_BRANCH
-
+Returns the number of branches created on GitHub for the period requested.
 ``` json
 {
   "NUMBER_GITHUB_NEW_BRANCH": {
@@ -182,7 +177,7 @@ This is a description
 ```
 
 ### NUMBER_GITHUB_OPEN_PR
-
+Returns the number of open pull requests on GitHub for the period requested.
 ``` json
 {
   "NUMBER_GITHUB_OPEN_PR": {
@@ -205,42 +200,8 @@ This is a description
 }
 ```
 
-### NUMBER_GITHUB_MERGE_PR_OLD
-
-``` json
-{
-  "NUMBER_GITHUB_MERGE_PR_OLD": {
-    "computer": {
-      "$ref": "#/context/definitions/computers/eventcomputer"
-    },
-    "measure": {
-      "computing": "actual",
-      "element": "number",
-      "event": {
-        "github": {
-          "events": {
-            "type": "PullRequestEvent",
-            "payload": {
-              "action": "closed",
-              "pull_request": {
-                "base": {
-                  "label": "%GITHUB.REPO_OWNER%:master"
-                }
-              }
-            }
-          }
-        }
-      },
-      "scope": {
-        "$ref": "#/context/definitions/scopes/development"
-      }
-    }
-  }
-}
-```
-
 ### NUMBER_GITHUB_MERGE_PR
-
+Returns the number of open pull requests on GitHub for the period requested.
 ``` json
 {
   "NUMBER_GITHUB_MERGE_PR": {
@@ -268,7 +229,7 @@ This is a description
 ```
 
 ### NUMBER_HEROKU_RELEASES
-
+Returns the number of completed deployments on Heroku for the period requested.
 ``` json
 {
   "NUMBER_HEROKU_RELEASES": {
@@ -295,7 +256,7 @@ This is a description
 ```
 
 ### NUMBER_TRAVIS_BUILDS
-
+Returns the total number of Travis builds for the period requested.
 ``` json
 {
   "NUMBER_TRAVIS_BUILDS": {
@@ -321,7 +282,7 @@ This is a description
 ```
 
 ### NUMBER_TRAVIS_FAILED_BUILDS
-
+Returns the total number of Travis builds that failed for the period requested.
 ``` json
 {
   "NUMBER_TRAVIS_FAILED_BUILDS": {
@@ -348,7 +309,7 @@ This is a description
 ```
 
 ### NUMBER_CC_COVERAGE
-
+Returns the total number of CodeClimate reports with coverage higher or equal than 0 (all) for the period requested.
 ``` json
 {
   "NUMBER_CC_COVERAGE": {
@@ -378,7 +339,7 @@ This is a description
 ```
 
 ### NUMBER_CC_COVERAGE_OVER_80
-
+Returns the total number of CodeClimate reports with coverage higher than 80 for the period requested.
 ``` json
 {
   "NUMBER_CC_COVERAGE_OVER_80": {
@@ -407,10 +368,8 @@ This is a description
 }
 ```
 
-### Percentage
-
 ### PERCENTAGE_NEWBRANCH_STARTEDSTORIES
-
+Returns the percentage obtained dividing the number of branches created on Github by the number of started stories on Pivotal for the requested period.
 ``` json
 {
   "PERCENTAGE_NEWBRANCH_STARTEDSTORIES": {
@@ -450,7 +409,7 @@ This is a description
 ```
 
 ### PERCENTAGE_NEWBRANCHWR_STARTEDSTORIES
-
+Returns the percentage obtained dividing the number of branches created on Github (obtained by the GitHub Wrapper) by the number of started stories on Pivotal for the requested period.
 ``` json
 {
   "PERCENTAGE_NEWBRANCHWR_STARTEDSTORIES": {
@@ -490,7 +449,7 @@ This is a description
 ```
 
 ### PERCENTAGE_NEWBRANCH_STARTEDSTORIES_BIND
-
+Returns the percentage obtained dividing the number of branches created on Github by the number of started stories on Pivotal that are correlated with the binding parameter for the requested period.
 ``` json
 {
   "PERCENTAGE_NEWBRANCH_STARTEDSTORIES_BIND": {
@@ -531,7 +490,7 @@ This is a description
 ```
 
 ### PERCENTAGE_OPENPR_FINISHEDSTORIES
-
+Returns the percentage obtained dividing the number of pull requests opened on Github by the number of finished stories on Pivotal for the requested period.
 ``` json
 {
   "PERCENTAGE_OPENPR_FINISHEDSTORIES": {
@@ -566,7 +525,7 @@ This is a description
 ```
 
 ### PERCENTAGE_OPENPR_FINISHEDSTORIES_BIND
-
+Returns the percentage obtained dividing the number of pull requests opened on Github by the number of finished stories on Pivotal that are correlated with the binding parameter for the requested period.
 ``` json
 {
   "PERCENTAGE_OPENPR_FINISHEDSTORIES_BIND": {
@@ -605,7 +564,7 @@ This is a description
 ```
 
 ### PERCENTAGE_MERGEPR_DELIVEREDSTORIES
-
+Returns the percentage obtained dividing the number of merged pull requests on Github by the number of delivered stories on Pivotal for the requested period.
 ``` json
 {
   "PERCENTAGE_MERGEPR_DELIVEREDSTORIES": {
@@ -644,7 +603,7 @@ This is a description
 ```
 
 ### PERCENTAGE_MERGEPR_DELIVEREDSTORIES_BIND
-
+Returns the percentage obtained dividing the number of merged pull requests on Github by the number of delivered stories on Pivotal that are correlated with the binding parameter for the requested period.
 ``` json
 {
   "PERCENTAGE_MERGEPR_DELIVEREDSTORIES_BIND": {
@@ -683,7 +642,7 @@ This is a description
 ```
 
 ### PERCENTAGE_RELEASES_DELIVEREDSTORIES
-
+Returns the percentage obtained dividing the number of Heroku deployments by the number of delivered stories on Pivotal that are correlated within a really small period of time for the requested period.
 ``` json
 {
   "PERCENTAGE_RELEASES_DELIVEREDSTORIES": {
@@ -721,7 +680,7 @@ This is a description
 ```
 
 ### PERCENTAGE_RELEASES_DELIVEREDSTORIES_BIND
-
+Returns the percentage obtained dividing the number of Heroku deployments by the number of delivered stories on Pivotal that are correlated within a really small period of time for the requested period.
 ``` json
 {
   "PERCENTAGE_RELEASES_DELIVEREDSTORIES": {
@@ -759,7 +718,7 @@ This is a description
 ```
 
 ### PERCENTAGE_FAILEDBUILDS_BUILDS
-
+Returns the percentage obtained dividing the number of Travis failed builds by the number of total Travis builds for the requested period.
 ``` json
 {
   "PERCENTAGE_FAILEDBUILDS_BUILDS": {
@@ -797,7 +756,7 @@ This is a description
 ```
 
 ### PERCENTAGE_80COVERAGE_COVERAGE
-
+Returns the percentage obtained dividing the number of higher than 80% coverage reports on CodeClimate by the number of total CodeClimate reports for the requested period.
 ``` json
 {
   "PERCENTAGE_80COVERAGE_COVERAGE": {
@@ -840,10 +799,9 @@ This is a description
   }
 }
 ```
-### Value
 
 ### VALUE_CC_COVERAGE
-
+Returns the newest value of coverage from CodeClimate for the requested period.
 ``` json
 {
   "VALUE_CC_COVERAGE": {
@@ -873,7 +831,7 @@ This is a description
 ```
 
 ### VALUE_OFFSET_CC_COVERAGE
-
+Returns the newest value of coverage from CodeClimate for the requested period offseted by 1 day.
 ``` json
 {
   "VALUE_OFFSET_CC_COVERAGE": {
@@ -1166,71 +1124,13 @@ At least 75% of delivered stories must match the merge of a PR into master withi
 }
 ```
 
-### MORE_THAN_70_PERCENT_CC_CODE_COVERED
-Extracted from CodeClimate test reports
+### COVERAGE_DELTA_VARIATION_HIGHER_EQUAL_ZERO
+This returns the delta variation of the coverage. The points values should be greater than 0.
 ``` json
 {
-  "id": "MORE_THAN_70_PERCENT_CC_CODE_COVERED",
-  "notes": "#### Description\r\n```\r\nTP-1: More than 70% of coverage",
-  "description": "Extracted from CodeClimate test reports",
-  "scope": {
-    "$ref": "#/context/definitions/scopes/development"
-  },
-  "of": [
-    {
-      "scope": {
-        "project": "1010101010"
-      },
-      "objective": "VALUE_CC_COVERAGE >= 70",
-      "with": {
-        "VALUE_CC_COVERAGE": {}
-      },
-      "window": {
-        "type": "static",
-        "period": "daily",
-        "initial": "2018-01-01"
-      }
-    }
-  ]
-}
-```
-
-### MORE_THAN_70_PERCENT_CC_CODE_COVERED_OFFSET
-Extracted from CodeClimate test reports
-``` json
-{
-  "id": "MORE_THAN_70_PERCENT_CC_CODE_COVERED_OFFSET",
-  "notes": "#### Description\r\n```\r\nTP-1: More than 70% of coverage OFFSET",
-  "description": "Extracted from CodeClimate test reports",
-  "scope": {
-    "$ref": "#/context/definitions/scopes/development"
-  },
-  "of": [
-    {
-      "scope": {
-        "project": "1010101010"
-      },
-      "objective": "VALUE_OFFSET_CC_COVERAGE >= 70",
-      "with": {
-        "VALUE_OFFSET_CC_COVERAGE": {}
-      },
-      "window": {
-        "type": "static",
-        "period": "daily",
-        "initial": "2018-01-01"
-      }
-    }
-  ]
-}
-```
-
-### SUBSTRACTION_HIGHER_EQUAL_ZERO
-Extracted from CodeClimate test reports
-``` json
-{
-  "id": "SUBSTRACTION_HIGHER_EQUAL_ZERO",
-  "notes": "#### Description\r\n```\r\nTP-1: More than 70% of coverage OFFSET",
-  "description": "Extracted from CodeClimate test reports",
+  "id": "COVERAGE_DELTA_VARIATION_HIGHER_EQUAL_ZERO",
+  "notes": "#### Description\r\n```\r\n: The delta variation of the coverage must be higher than 0.",
+  "description": "This returns the delta variation of the coverage. The points values should be greater than 0.",
   "scope": {
     "$ref": "#/context/definitions/scopes/development"
   },
