@@ -270,8 +270,8 @@
         },
         "guarantees": [
             {
-                "id": "75_PERCENT_NEWBRANCH_STARTED_STORIES_WITHIN_A_DAY_BIND",
-                "notes": "#### Description\r\n```\r\nTP-1: At least 75% of started stories(PT) must match a creation of a branch (GH) within a day.",
+                "id": "75_PERCENT_NEWBRANCH_STARTEDSTORIES_WITHIN_A_DAY_BIND",
+                "notes": "#### Description\r\n```\r\nTP-1: At least 75% of started stories(PT) must match a creation of a branch(GH) within a day.",
                 "description": "At least 75% of started stories must match a creation of a branch within a day.",
                 "scope": {
                     "$ref": "#/context/definitions/scopes/development"
@@ -281,9 +281,9 @@
                         "scope": {
                             "project": "1010101010"
                         },
-                        "objective": "PERCENTAGE_NEWBRANCHWR_STARTEDSTORIES >= 75",
+                        "objective": "PERCENTAGE_NEWBRANCH_STARTEDSTORIES_BIND >= 75",
                         "with": {
-                            "PERCENTAGE_NEWBRANCHWR_STARTEDSTORIES": {}
+                            "PERCENTAGE_NEWBRANCH_STARTEDSTORIES_BIND": {}
                         },
                         "window": {
                             "type": "static",
@@ -294,8 +294,8 @@
                 ]
             },
             {
-                "id": "75_PERCENT_MASTER_PR_OPEN_FINSH_STORIES_WITHIN_A_DAY_BIND",
-                "notes": "#### Description\r\n```\r\nTP-1: At least 75% of finished stories(PT) must match creation of a PR within a day.",
+                "id": "75_PERCENT_OPENPR_FINISHEDSTORIES_WITHIN_A_DAY_BIND",
+                "notes": "#### Description\r\n```\r\nTP-1: At least 75% of finished stories(PT) must match creation of a PR(GH) within a day.",
                 "description": "At least 75% of finished stories must match the creation of a PR within a day.",
                 "scope": {
                     "$ref": "#/context/definitions/scopes/development"
@@ -305,9 +305,9 @@
                         "scope": {
                             "project": "1010101010"
                         },
-                        "objective": "PERCENTAGE_OPENPR_FINISHEDSTORIES >= 75",
+                        "objective": "PERCENTAGE_OPENPR_FINISHEDSTORIES_BIND >= 75",
                         "with": {
-                            "PERCENTAGE_OPENPR_FINISHEDSTORIES": {}
+                            "PERCENTAGE_OPENPR_FINISHEDSTORIES_BIND": {}
                         },
                         "window": {
                             "type": "static",
@@ -318,8 +318,8 @@
                 ]
             },
             {
-                "id": "75_PERCENT_MASTER_PR_MERGE_DELVR_STORIES_WITHIN_A_DAY_BIND",
-                "notes": "#### Description\r\n```\r\nTP-1: At least 75% of delivered stories(PT) must match a the merge of a PR into master within a day.",
+                "id": "75_PERCENT_MERGEPR_DELIVEREDSTORIES_WITHIN_A_DAY_BIND",
+                "notes": "#### Description\r\n```\r\nTP-1: At least 75% of delivered stories(PT) must match a the merge of a PR(GH) into master within a day.",
                 "description": "At least 75% of delivered stories must match the merge of a PR into master within a day.",
                 "scope": {
                     "$ref": "#/context/definitions/scopes/development"
@@ -329,9 +329,9 @@
                         "scope": {
                             "project": "1010101010"
                         },
-                        "objective": "PERCENTAGE_MERGEPR_DELIVEREDSTORIES >= 75",
+                        "objective": "PERCENTAGE_MERGEPR_DELIVEREDSTORIES_BIND >= 75",
                         "with": {
-                            "PERCENTAGE_MERGEPR_DELIVEREDSTORIES": {}
+                            "PERCENTAGE_MERGEPR_DELIVEREDSTORIES_BIND": {}
                         },
                         "window": {
                             "type": "static",
@@ -342,9 +342,9 @@
                 ]
             },
             {
-                "id": "75_PERCENT_MASTER_PR_MERGE_DEPLOY_WITHIN_A_DAY_BIND",
-                "notes": "#### Description\r\n```\r\nTP-1: At least 75% of delivered stories(PT) must match a the merge of a PR into master within a day.",
-                "description": "At least 75% of delivered stories must match the merge of a PR into master within a day.",
+                "id": "75_PERCENT_RELEASES_DELIVEREDSTORIES_WITHIN_A_DAY_BIND",
+                "notes": "#### Description\r\n```\r\nTP-1: At least 75% of delivered stories(PT) must match deploy(H) within an hour.",
+                "description": "At least 75% of delivered stories must match deploy on Heroku within an hour.",
                 "scope": {
                     "$ref": "#/context/definitions/scopes/development"
                 },
@@ -353,9 +353,9 @@
                         "scope": {
                             "project": "1010101010"
                         },
-                        "objective": "PERCENTAGE_RELEASES_DELIVEREDSTORIES >= 75",
+                        "objective": "PERCENTAGE_RELEASES_DELIVEREDSTORIES_BIND >= 75",
                         "with": {
-                            "PERCENTAGE_RELEASES_DELIVEREDSTORIES": {}
+                            "PERCENTAGE_RELEASES_DELIVEREDSTORIES_BIND": {}
                         },
                         "window": {
                             "type": "static",
@@ -366,9 +366,9 @@
                 ]
             },
             {
-                "id": "75_PERCENT_MASTER_PR_MERGE_LESS_THAN_300_CHANGES_WITHIN_A_DAY",
-                "notes": "#### Description\r\n```\r\nTP-1: At least 75% of delivered stories(PT) must match a the merge of a PR into master within a day.",
-                "description": "At least 75% of delivered stories must match the merge of a PR into master within a day.",
+                "id": "75_PERCENT_MASTER_PR_MERGE_LESS_THAN_300_CHANGES",
+                "notes": "#### Description\r\n```\r\nTP-1: At least 75% of merged pull requests should have less than 300 changes.",
+                "description": "At least 75% of merged pull requests should have less than 300 changes.",
                 "scope": {
                     "$ref": "#/context/definitions/scopes/development"
                 },
@@ -391,8 +391,8 @@
             },
             {
                 "id": "NUMBER_MASTER_PR_MERGE_WEEKLY_OVER_1_OR_EQUAL",
-                "notes": "#### Description\r\n```\r\nTP-1: At least 75% of delivered stories(PT) must match a the merge of a PR into master within a day.",
-                "description": "At least 75% of delivered stories must match the merge of a PR into master within a day.",
+                "notes": "#### Description\r\n```\r\nTP-1: There should be at least a PR merge each week.",
+                "description": "There should be at least a PR merge each week",
                 "scope": {
                     "$ref": "#/context/definitions/scopes/development"
                 },
@@ -415,8 +415,8 @@
             },
             {
                 "id": "STDEV_GITHUB_MERGE_PR_WEEKLY_UNDER_1",
-                "notes": "#### Description\r\n```\r\nTP-1: At least 75% of delivered stories(PT) must match a the merge of a PR into master within a day.",
-                "description": "At least 75% of delivered stories must match the merge of a PR into master within a day.",
+                "notes": "#### Description\r\n```\r\nTP-1: The weekly standard deviation obtained from the daily PR merges must be under 1.",
+                "description": "The weekly standard deviation obtained from the daily PR merges must be under 1",
                 "scope": {
                     "$ref": "#/context/definitions/scopes/development"
                 },
