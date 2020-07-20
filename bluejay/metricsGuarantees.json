@@ -8,7 +8,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": "number",
                         "event": {
@@ -33,7 +33,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": "number",
                         "event": {
@@ -58,7 +58,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": "number",
                         "event": {
@@ -83,7 +83,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": "number",
                         "event": {
@@ -108,7 +108,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": "number",
                         "event": {
@@ -136,7 +136,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": "number",
                         "event": {
@@ -159,7 +159,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": "number",
                         "event": {
@@ -186,7 +186,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": "number",
                         "event": {
@@ -212,7 +212,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": "number",
                         "event": {
@@ -237,7 +237,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": "number",
                         "event": {
@@ -263,7 +263,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": "number",
                         "event": {
@@ -292,7 +292,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": "number",
                         "event": {
@@ -321,7 +321,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": {
                             "percentage": {
@@ -360,7 +360,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": {
                             "percentage": {
@@ -399,7 +399,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": {
                             "percentage": {
@@ -439,7 +439,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": {
                             "percentage": {
@@ -473,7 +473,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": {
                             "percentage": {
@@ -511,7 +511,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": {
                             "percentage": {
@@ -549,7 +549,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": {
                             "percentage": {
@@ -587,7 +587,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": {
                             "percentage": {
@@ -624,7 +624,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": {
                             "percentage": {
@@ -661,7 +661,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": {
                             "percentage": {
@@ -698,7 +698,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": {
                             "percentage": {
@@ -742,7 +742,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": {
                             "value": {
@@ -772,7 +772,7 @@
                     "computer": {
                         "$ref": "#/context/definitions/computers/eventcomputer"
                     },
-                    "measure": {
+                    "metric": {
                         "computing": "actual",
                         "element": {
                             "value": {
@@ -791,6 +791,37 @@
                             "$ref": "#/context/definitions/scopes/development"
                         },
                         "offset": -1
+                    }
+                }
+            }
+        },
+        {
+            "name": "STDEV_GITHUB_MERGE_PR",
+            "description": "Returns the standard deviation of PR merges taking daily values as input from GitHub.",
+            "dsl": {
+                "STDEV_MASTER_PR_MERGE": {
+                    "computer": {
+                        "$ref": "#/context/definitions/computers/eventcomputer"
+                    },
+                    "metric": {
+                        "computing": "string",
+                        "element": {
+                            "stdev": {
+                                "period": "daily"
+                            }
+                        },
+                        "event": {
+                            "github": {
+                                "closedPR": {
+                                    "base": {
+                                        "label": "%GITHUB.REPO_OWNER%:master"
+                                    }
+                                }
+                            }
+                        },
+                        "scope": {
+                            "$ref": "#/context/definitions/scopes/development"
+                        }
                     }
                 }
             }

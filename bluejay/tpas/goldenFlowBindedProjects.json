@@ -242,7 +242,7 @@
                     }
                 }
             },
-            "STDEV_MASTER_PR_MERGE": {
+            "STDEV_GITHUB_MERGE_PR": {
                 "computer": {
                     "$ref": "#/context/definitions/computers/eventcomputer"
                 },
@@ -414,7 +414,7 @@
                 ]
             },
             {
-                "id": "STDEV_MASTER_PR_MERGE_WEEKLY_UNDER_1",
+                "id": "STDEV_GITHUB_MERGE_PR_WEEKLY_UNDER_1",
                 "notes": "#### Description\r\n```\r\nTP-1: At least 75% of delivered stories(PT) must match a the merge of a PR into master within a day.",
                 "description": "At least 75% of delivered stories must match the merge of a PR into master within a day.",
                 "scope": {
@@ -425,9 +425,9 @@
                         "scope": {
                             "project": "1010101010"
                         },
-                        "objective": "STDEV_MASTER_PR_MERGE < 1",
+                        "objective": "STDEV_GITHUB_MERGE_PR < 1",
                         "with": {
-                            "STDEV_MASTER_PR_MERGE": {}
+                            "STDEV_GITHUB_MERGE_PR": {}
                         },
                         "window": {
                             "type": "static",

@@ -30,6 +30,7 @@ Metrics and guarantees for the project Bluejay.
     * [PERCENTAGE_80COVERAGE_COVERAGE](#percentage_80coverage_coverage)
     * [VALUE_CC_COVERAGE](#value_cc_coverage)
     * [VALUE_OFFSET_CC_COVERAGE](#value_offset_cc_coverage)
+    * [STDEV_GITHUB_MERGE_PR](#stdev_github_merge_pr)
   * **[Guarantees](#guarantees)**
     * [75_PERCENT_NEWBRANCH_STARTED_STORIES_WITHIN_A_DAY_WRAPPER](#75_percent_newbranch_started_stories_within_a_day_wrapper)
     * [75_PERCENT_NEWBRANCH_STARTED_STORIES_WITHIN_A_DAY](#75_percent_newbranch_started_stories_within_a_day)
@@ -51,7 +52,7 @@ Returns the total number of Pivotal started stories for the period requested.
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": "number",
       "event": {
@@ -77,7 +78,7 @@ Returns the total number of Pivotal finished stories for the period requested.
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": "number",
       "event": {
@@ -103,7 +104,7 @@ Returns the total number of Pivotal accepted stories for the period requested.
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": "number",
       "event": {
@@ -129,7 +130,7 @@ Returns the total number of Pivotal delivered stories for the period requested.
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": "number",
       "event": {
@@ -155,7 +156,7 @@ Returns the number of branches created on GitHub for the period requested.
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": "number",
       "event": {
@@ -184,7 +185,7 @@ Returns the number of open pull requests on GitHub for the period requested.
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": "number",
       "event": {
@@ -208,7 +209,7 @@ Returns the number of open pull requests on GitHub for the period requested.
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": "number",
       "event": {
@@ -236,7 +237,7 @@ Returns the number of completed deployments on Heroku for the period requested.
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": "number",
       "event": {
@@ -263,7 +264,7 @@ Returns the total number of Travis builds for the period requested.
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": "number",
       "event": {
@@ -289,7 +290,7 @@ Returns the total number of Travis builds that failed for the period requested.
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": "number",
       "event": {
@@ -316,7 +317,7 @@ Returns the total number of CodeClimate reports with coverage higher or equal th
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": "number",
       "event": {
@@ -346,7 +347,7 @@ Returns the total number of CodeClimate reports with coverage higher than 80 for
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": "number",
       "event": {
@@ -376,7 +377,7 @@ Returns the percentage obtained dividing the number of branches created on Githu
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": {
         "percentage": {
@@ -416,7 +417,7 @@ Returns the percentage obtained dividing the number of branches created on Githu
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": {
         "percentage": {
@@ -456,7 +457,7 @@ Returns the percentage obtained dividing the number of branches created on Githu
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": {
         "percentage": {
@@ -497,7 +498,7 @@ Returns the percentage obtained dividing the number of pull requests opened on G
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": {
         "percentage": {
@@ -532,7 +533,7 @@ Returns the percentage obtained dividing the number of pull requests opened on G
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": {
         "percentage": {
@@ -571,7 +572,7 @@ Returns the percentage obtained dividing the number of merged pull requests on G
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": {
         "percentage": {
@@ -610,7 +611,7 @@ Returns the percentage obtained dividing the number of merged pull requests on G
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": {
         "percentage": {
@@ -649,7 +650,7 @@ Returns the percentage obtained dividing the number of Heroku deployments by the
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": {
         "percentage": {
@@ -687,7 +688,7 @@ Returns the percentage obtained dividing the number of Heroku deployments by the
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": {
         "percentage": {
@@ -725,7 +726,7 @@ Returns the percentage obtained dividing the number of Travis failed builds by t
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": {
         "percentage": {
@@ -763,7 +764,7 @@ Returns the percentage obtained dividing the number of higher than 80% coverage 
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": {
         "percentage": {
@@ -808,7 +809,7 @@ Returns the newest value of coverage from CodeClimate for the requested period.
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": {
         "value": {
@@ -838,7 +839,7 @@ Returns the newest value of coverage from CodeClimate for the requested period o
     "computer": {
       "$ref": "#/context/definitions/computers/eventcomputer"
     },
-    "measure": {
+    "metric": {
       "computing": "actual",
       "element": {
         "value": {
@@ -856,6 +857,38 @@ Returns the newest value of coverage from CodeClimate for the requested period o
         "$ref": "#/context/definitions/scopes/development"
       },
       "offset": -1
+    }
+  }
+}
+```
+
+### STDEV_GITHUB_MERGE_PR
+Returns the standard deviation of PR merges taking daily values as input from GitHub.
+``` json
+{
+  "STDEV_MASTER_PR_MERGE": {
+    "computer": {
+      "$ref": "#/context/definitions/computers/eventcomputer"
+    },
+    "metric": {
+      "computing": "string",
+      "element": {
+        "stdev": {
+          "period": "daily"
+        }
+      },
+      "event": {
+        "github": {
+          "closedPR": {
+            "base": {
+              "label": "%GITHUB.REPO_OWNER%:master"
+            }
+          }
+        }
+      },
+      "scope": {
+        "$ref": "#/context/definitions/scopes/development"
+      }
     }
   }
 }
