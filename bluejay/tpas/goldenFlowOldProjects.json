@@ -250,7 +250,7 @@
                     },
                     "event": {
                         "github": {
-                            "closedPR": {
+                            "mergedPR": {
                                 "base": {
                                     "label": "%GITHUB.REPO_OWNER%:master"
                                 }
