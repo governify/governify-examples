@@ -198,7 +198,7 @@
                             "related": {
                                 "github": {
                                     "closedPRFiles": {
-                                        "changes": "%LOWER_OR_EQUAL%300",
+                                        "changes": "%SECOND%%LOWER_OR_EQUAL%300",
                                         "base": {
                                             "label": "%GITHUB.REPO_OWNER%:master"
                                         }
