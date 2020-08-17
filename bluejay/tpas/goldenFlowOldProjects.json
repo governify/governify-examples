@@ -62,7 +62,7 @@
                 "computer": {
                     "$ref": "#/context/definitions/computers/eventcomputer"
                 },
-                "metric": {
+                "measure": {
                     "computing": "actual",
                     "element": {
                         "percentage": {
@@ -95,7 +95,7 @@
                 "computer": {
                     "$ref": "#/context/definitions/computers/eventcomputer"
                 },
-                "metric": {
+                "measure": {
                     "computing": "actual",
                     "element": {
                         "percentage": {
@@ -123,17 +123,13 @@
                 "computer": {
                     "$ref": "#/context/definitions/computers/eventcomputer"
                 },
-                "metric": {
+                "measure": {
                     "computing": "actual",
                     "element": {
                         "percentage": {
                             "related": {
                                 "github": {
-                                    "mergedPR": {
-                                        "base": {
-                                            "label": "%GITHUB.REPO_OWNER%:master"
-                                        }
-                                    }
+                                    "mergedPR": {}
                                 },
                                 "window": 86400
                             }
@@ -155,7 +151,7 @@
                 "computer": {
                     "$ref": "#/context/definitions/computers/eventcomputer"
                 },
-                "metric": {
+                "measure": {
                     "computing": "actual",
                     "element": {
                         "percentage": {
@@ -166,7 +162,7 @@
                                         "description": "%CONTAINS%Deploy"
                                     }
                                 },
-                                "window": 86400
+                                "window": 86400000
                             }
                         }
                     },
@@ -186,17 +182,14 @@
                 "computer": {
                     "$ref": "#/context/definitions/computers/eventcomputer"
                 },
-                "metric": {
+                "measure": {
                     "computing": "actual",
                     "element": {
                         "percentage": {
                             "related": {
                                 "github": {
                                     "closedPRFiles": {
-                                        "changes": "%SECOND%%LOWER_OR_EQUAL%300",
-                                        "base": {
-                                            "label": "%GITHUB.REPO_OWNER%:master"
-                                        }
+                                        "changes": "%SECOND%%LOWER_OR_EQUAL%300"
                                     }
                                 }
                             }
@@ -204,11 +197,7 @@
                     },
                     "event": {
                         "github": {
-                            "closedPRFiles": {
-                                "base": {
-                                    "label": "%GITHUB.REPO_OWNER%:master"
-                                }
-                            }
+                            "closedPRFiles": {}
                         }
                     },
                     "scope": {
@@ -220,16 +209,12 @@
                 "computer": {
                     "$ref": "#/context/definitions/computers/eventcomputer"
                 },
-                "metric": {
+                "measure": {
                     "computing": "actual",
                     "element": "number",
                     "event": {
                         "github": {
-                            "mergedPR": {
-                                "base": {
-                                    "label": "%GITHUB.REPO_OWNER%:master"
-                                }
-                            }
+                            "mergedPR": {}
                         }
                     },
                     "scope": {
@@ -241,7 +226,7 @@
                 "computer": {
                     "$ref": "#/context/definitions/computers/eventcomputer"
                 },
-                "metric": {
+                "measure": {
                     "computing": "string",
                     "element": {
                         "stdev": {
@@ -250,16 +235,12 @@
                     },
                     "event": {
                         "github": {
-                            "mergedPR": {
-                                "base": {
-                                    "label": "%GITHUB.REPO_OWNER%:master"
-                                }
-                            }
+                            "mergedPR": {}
                         }
                     },
                     "scope": {
                         "$ref": "#/context/definitions/scopes/development"
-                    }
+                    }                    
                 }
             }
         },
