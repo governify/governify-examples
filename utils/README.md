@@ -1,0 +1,2 @@
+# Information
+There are two tools provided for transforming the metrics README.md files into JSON files and viceversa in case it is needed. They have a configuration part at the beggining and they transform this files into the other if the format is the specified in the README.md file inside the metrics folder.
