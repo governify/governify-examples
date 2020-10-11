@@ -1,6 +1,6 @@
-# Bluejay metrics and guarantees
+# Event Collector metrics and guarantees
 
-Metrics categorized by pattern and guarantees for the project Bluejay.
+Metrics categorized by pattern and guarantees for the project Event Collector.
 
 # Index
 

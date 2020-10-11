@@ -1,5 +1,12 @@
-# Format
+# Metrics and guarantees
 
+Click on the link to access the different examples for the system:
+
+  * [Event Collector](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md)
+  * [GH Collector](https://github.com/isa-group/governify-examples/blob/master/metrics/gh-collector/README.md)
+  * [PT Collector](https://github.com/isa-group/governify-examples/blob/master/metrics/pt-collector/README.md)
+
+# Format
 ## README.md files
 
 They should follow the next structure:
