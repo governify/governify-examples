@@ -5,7 +5,7 @@ Metrics categorized by pattern and guarantees for the project Event Collector.
 # Index
 
   * **[Metrics](#metrics)**
-    * [Pattern 1](#pattern_1) - Number of `[Event]` in `[Tool]` every `[Period]` by `[TEAM|MEMBER]`
+    * [PATTERN 1](#PATTERN_1) - Number of `[Event]` in `[Tool]` every `[Period]` by `[TEAM|MEMBER]`
       * [NUMBER_PT_STARTEDSTORIES](#NUMBER_PT_STARTEDSTORIES)
       * [NUMBER_PT_FINISHEDSTORIES](#number_pt_finishedstories)
       * [NUMBER_PT_ACCEPTEDSTORIES](#number_pt_acceptedstories)
@@ -18,12 +18,12 @@ Metrics categorized by pattern and guarantees for the project Event Collector.
       * [NUMBER_TR_FAILEDBUILDS](#number_tr_failedbuilds)
       * [NUMBER_CC_COVERAGE](#number_cc_coverage)
       * [NUMBER_CC_COVERAGE_OVER80](#number_cc_coverage_over80)
-    * [Pattern 2](#pattern_2) - `[MAX|MIN|AVG|STD|NEWEST|LATEST]` `[Property]` value of `[Event]` in `[Tool]` every `[Period]` by team.
+    * [PATTERN 2](#PATTERN_2) - `[MAX|MIN|AVG|STD|NEWEST|LATEST]` `[Property]` value of `[Event]` in `[Tool]` every `[Period]` by team.
       * [VALUE_CC_COVERAGE](#value_cc_coverage)
       * [VALUE_CC_COVERAGE_OFFSET](#value_cc_coverage_offset)
-    * [Pattern 3](#pattern_3) - `[Frequency]` distribution of `[Event]` in `[Tool]` every `[Period]` by team.
+    * [PATTERN 3](#PATTERN_3) - `[Frequency]` distribution of `[Event]` in `[Tool]` every `[Period]` by team.
       * [STDEV_GH_MERGEPR_DAILY](#stdev_gh_mergepr_daily)
-    * [Pattern 4](#pattern_4) - Percentage of `[Event1]` in `[Tool1]` correlated with `[Event2]` in `[Tool2]` within `[window]` every `[Period]` by team.
+    * [PATTERN 4](#PATTERN_4) - Percentage of `[Event1]` in `[Tool1]` correlated with `[Event2]` in `[Tool2]` within `[window]` every `[Period]` by team.
       * [PERCENTAGE_GH_NEWBRANCH_PT_STARTEDSTORIES](#percentage_gh_newbranch_pt_startedstories)
       * [PERCENTAGE_GHWR_NEWBRANCH_PT_STARTEDSTORIES](#percentage_ghwr_newbranch_pt_startedstories)
       * [PERCENTAGE_GH_NEWBRANCH_PT_STARTEDSTORIES_BIND](#percentage_gh_newbranch_pt_startedstories_bind)
@@ -48,7 +48,7 @@ Metrics categorized by pattern and guarantees for the project Event Collector.
     * [COVERAGE_DELTA_VARIATION_HIGHER_EQUAL_ZERO](#coverage_delta_variation_higher_equal_zero)
 # Metrics
 
-## Pattern_1 
+## PATTERN_1 
  - Number of `[Event]` in `[Tool]` every `[Period]` by `[TEAM|MEMBER]`
 
 ### NUMBER_PT_STARTEDSTORIES
@@ -376,7 +376,7 @@ Returns the total number of CodeClimate reports with coverage higher than 80 for
 }
 ```
 
-## Pattern_2
+## PATTERN_2
  - `[MAX|MIN|AVG|STD|NEWEST|LATEST]` `[Property]` value of `[Event]` in `[Tool]` every `[Period]` by team.
 
 ### VALUE_CC_COVERAGE
@@ -442,7 +442,7 @@ Returns the newest value of coverage from CodeClimate for the requested period o
 }
 ```
 
-## Pattern_3
+## PATTERN_3
  - `[Frequency]` distribution of `[Event]` in `[Tool]` every `[Period]` by team.
 
 ### STDEV_GH_MERGEPR_DAILY
@@ -478,7 +478,7 @@ Returns the standard deviation of PR merges taking daily values as input from Gi
 ```
 
 
-## Pattern_4
+## PATTERN_4
  - Percentage of `[Event1]` in `[Tool1]` correlated with `[Event2]` in `[Tool2]` within `[window]` every `[Period]` by team.
 
 ### PERCENTAGE_GH_NEWBRANCH_PT_STARTEDSTORIES
