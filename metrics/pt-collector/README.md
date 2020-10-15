@@ -2,28 +2,782 @@
 
 Metrics categorized by pattern and guarantees for the PT Collector.
 
-# Index
+## Index
 
   * **[Metrics](#metrics)**
-    * [PATTERN 1](#PATTERN_1) - PATTERN 1
-      * [METRIC1](#METRIC1)
+    * [PERCENTAGE_SUCCESSFULLY_FINISHED_1P_STORIES](#percentage_successfully_finished_1p_stories)
+    * [PERCENTAGE_SUCCESSFULLY_DELIVERED_1P_STORIES](#percentage_successfully_delivered_1p_stories)
+    * [PERCENTAGE_OF_1P_STORIES](#percentage_of_1p_stories)
+    * [NUMBER_OF_STARTED_STORIES](#number_of_started_stories)
+    * [REMAINING_POINTS](#remaining_points)
+    * [CURRENT_FINISHED_STORIES](#current_finished_stories)
+    * [FINISHED_STORIES_THREE_DAYS_AGO](#finished_stories_three_days_ago)
+    * [CURRENT_DELIVERED_POINTS](#current_delivered_points)
+    * [DELIVERED_POINTS_THREE_DAYS_AGO](#delivered_points_three_days_ago)
+    * [SHORT_CYCLE_TIME_STORIES](#short_cycle_time_stories)
+    * [FROZEN_STORIES_PERCENTAGE](#frozen_stories_percentage)
   * **[Guarantees](#guarantees)**
-    * [GUARANTEE1](#GUARANTEE1)
-# Metrics
+    * [1P_STORIES_SUCCESSFULLY_FINISHED_ON_TIME](#1p_stories_successfully_finished_on_time)
+    * [1P_STORIES_SUCCESSFULLY_DELIVERED_ON_TIME](#1p_stories_successfully_delivered_on_time)
+    * [MAJORITY_OF_1P_STORIES](#majority_of_1p_stories)
+    * [ONE_STORY_AT_A_TIME](#one_story_at_a_time)
+    * [NO_REMAINING_POINTS](#no_remaining_points)
+    * [INCREMENT_OF_FINISHED_STORIES](#increment_of_finished_stories)
+    * [INCREMENT_OF_DELIVERED_POINTS](#increment_of_delivered_points)
+    * [NO_SHORT_CYCLE_TIME_STORIES](#no_short_cycle_time_stories)
+    * [FROZEN_STORIES_ARE_STABLE](#frozen_stories_are_stable)
+## Metrics
 
-## PATTERN_1 
- - PATTERN 1
-
-### METRIC1
-METRIC1 description
-``` json
-{}
-```
-# Guarantees
-
-### GUARANTEE1
-GUARANTEE1 description
+### PERCENTAGE_SUCCESSFULLY_FINISHED_1P_STORIES
+Returns the total number of Pivotal started stories for the period requested.
 ``` json
 {
+  "computer": {
+    "name": "/indicators/PERCENTAGE_SUCCESSFULLY_FINISHED_1P_STORIES",
+    "url": "http://pt.computer.1212121212",
+    "apiVersion": "1",
+    "config": {
+      "ptkey": "1313131313",
+      "schedules": {
+        "24x7": "L-DT00:00-23:59/H",
+        "normal": "[{\"from\":\"1/1\",\"to\":\"6/14\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"6/15\",\"to\":\"9/15\",\"schedule\":\"L-VT08:30-15:00/H\"},{\"from\":\"9/16\",\"to\":\"12/23\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/24\",\"to\":\"12/24\",\"schedule\":\"L-VT09:00-13:00/H\"},{\"from\":\"12/25\",\"to\":\"12/30\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/31\",\"to\":\"12/31\",\"schedule\":\"L-VT09:00-13:00/H\"}]"
+      },
+      "holidays": "http://registry.1212121212/static/holidays.json"
+    }
+  },
+  "measure": {
+    "computing": "actual",
+    "element": {
+      "percentage": {
+        "transition": {
+          "fromState": "started",
+          "toState": "finished",
+          "duration": "< 1440"
+        }
+      }
+    },
+    "filters": {
+      "type": "feature",
+      "state": "finished,delivered,accepted,rejected",
+      "estimate": 1
+    },
+    "scope": {
+      "$ref": "#/context/definitions/scopes/development"
+    }
+  }
 }
 ```
+
+### PERCENTAGE_SUCCESSFULLY_DELIVERED_1P_STORIES
+Returns the total number of Pivotal started stories for the period requested.
+``` json
+{
+  "computer": {
+    "name": "/indicators/PERCENTAGE_SUCCESSFULLY_DELIVERED_1P_STORIES",
+    "url": "http://pt.computer.1212121212",
+    "apiVersion": "1",
+    "config": {
+      "ptkey": "1313131313",
+      "schedules": {
+        "24x7": "L-DT00:00-23:59/H",
+        "normal": "[{\"from\":\"1/1\",\"to\":\"6/14\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"6/15\",\"to\":\"9/15\",\"schedule\":\"L-VT08:30-15:00/H\"},{\"from\":\"9/16\",\"to\":\"12/23\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/24\",\"to\":\"12/24\",\"schedule\":\"L-VT09:00-13:00/H\"},{\"from\":\"12/25\",\"to\":\"12/30\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/31\",\"to\":\"12/31\",\"schedule\":\"L-VT09:00-13:00/H\"}]"
+      },
+      "holidays": "http://registry.1212121212/static/holidays.json"
+    }
+  },
+  "measure": {
+    "computing": "actual",
+    "element": {
+      "percentage": {
+        "transition": {
+          "fromState": "started",
+          "toState": "delivered",
+          "duration": "< 4320"
+        }
+      }
+    },
+    "filters": {
+      "type": "feature",
+      "state": "delivered,accepted,rejected",
+      "estimate": 1
+    },
+    "scope": {
+      "$ref": "#/context/definitions/scopes/development"
+    }
+  }
+}
+```
+
+### PERCENTAGE_OF_1P_STORIES
+Returns the total number of Pivotal started stories for the period requested.
+``` json
+{
+  "computer": {
+    "name": "/indicators/PERCENTAGE_OF_1P_STORIES",
+    "url": "http://pt.computer.1212121212",
+    "apiVersion": "1",
+    "config": {
+      "ptkey": "1313131313",
+      "schedules": {
+        "24x7": "L-DT00:00-23:59/H",
+        "normal": "[{\"from\":\"1/1\",\"to\":\"6/14\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"6/15\",\"to\":\"9/15\",\"schedule\":\"L-VT08:30-15:00/H\"},{\"from\":\"9/16\",\"to\":\"12/23\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/24\",\"to\":\"12/24\",\"schedule\":\"L-VT09:00-13:00/H\"},{\"from\":\"12/25\",\"to\":\"12/30\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/31\",\"to\":\"12/31\",\"schedule\":\"L-VT09:00-13:00/H\"}]"
+      },
+      "holidays": "http://registry.1212121212/static/holidays.json"
+    }
+  },
+  "measure": {
+    "computing": "actual",
+    "element": {
+      "percentage": {
+        "estimate": 1
+      }
+    },
+    "filters": {
+      "type": "feature",
+      "state": "started,finished,delivered,accepted,rejected"
+    },
+    "scope": {
+      "$ref": "#/context/definitions/scopes/development"
+    }
+  }
+}
+```
+
+### NUMBER_OF_STARTED_STORIES
+Returns the total number of Pivotal started stories for the period requested.
+``` json
+{
+  "computer": {
+    "name": "/indicators/NUMBER_OF_STARTED_STORIES",
+    "url": "http://pt.computer.1212121212",
+    "apiVersion": "1",
+    "config": {
+      "ptkey": "1313131313",
+      "schedules": {
+        "24x7": "L-DT00:00-23:59/H",
+        "normal": "[{\"from\":\"1/1\",\"to\":\"6/14\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"6/15\",\"to\":\"9/15\",\"schedule\":\"L-VT08:30-15:00/H\"},{\"from\":\"9/16\",\"to\":\"12/23\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/24\",\"to\":\"12/24\",\"schedule\":\"L-VT09:00-13:00/H\"},{\"from\":\"12/25\",\"to\":\"12/30\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/31\",\"to\":\"12/31\",\"schedule\":\"L-VT09:00-13:00/H\"}]"
+      },
+      "holidays": "http://registry.1212121212/static/holidays.json"
+    }
+  },
+  "measure": {
+    "computing": "actual",
+    "element": "number",
+    "filters": {
+      "type": "feature,bug,chore",
+      "state": "started"
+    },
+    "scope": {
+      "$ref": "#/context/definitions/scopes/development"
+    }
+  }
+}
+```
+
+### REMAINING_POINTS
+Returns the total number of Pivotal started stories for the period requested.
+``` json
+{
+  "computer": {
+    "name": "/indicators/REMAINING_POINTS",
+    "url": "http://pt.computer.1212121212",
+    "apiVersion": "1",
+    "config": {
+      "ptkey": "1313131313",
+      "schedules": {
+        "24x7": "L-DT00:00-23:59/H",
+        "normal": "[{\"from\":\"1/1\",\"to\":\"6/14\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"6/15\",\"to\":\"9/15\",\"schedule\":\"L-VT08:30-15:00/H\"},{\"from\":\"9/16\",\"to\":\"12/23\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/24\",\"to\":\"12/24\",\"schedule\":\"L-VT09:00-13:00/H\"},{\"from\":\"12/25\",\"to\":\"12/30\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/31\",\"to\":\"12/31\",\"schedule\":\"L-VT09:00-13:00/H\"}]"
+      },
+      "holidays": "http://registry.1212121212/static/holidays.json"
+    }
+  },
+  "measure": {
+    "computing": "actual",
+    "element": "points",
+    "filters": {
+      "type": "feature",
+      "state": "unstarted"
+    },
+    "scope": {
+      "$ref": "#/context/definitions/scopes/development"
+    }
+  }
+}
+```
+
+### CURRENT_FINISHED_STORIES
+Returns the total number of Pivotal started stories for the period requested.
+``` json
+{
+  "computer": {
+    "name": "/indicators/CURRENT_FINISHED_STORIES",
+    "url": "http://pt.computer.1212121212",
+    "apiVersion": "1",
+    "config": {
+      "ptkey": "1313131313",
+      "schedules": {
+        "24x7": "L-DT00:00-23:59/H",
+        "normal": "[{\"from\":\"1/1\",\"to\":\"6/14\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"6/15\",\"to\":\"9/15\",\"schedule\":\"L-VT08:30-15:00/H\"},{\"from\":\"9/16\",\"to\":\"12/23\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/24\",\"to\":\"12/24\",\"schedule\":\"L-VT09:00-13:00/H\"},{\"from\":\"12/25\",\"to\":\"12/30\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/31\",\"to\":\"12/31\",\"schedule\":\"L-VT09:00-13:00/H\"}]"
+      },
+      "holidays": "http://registry.1212121212/static/holidays.json"
+    }
+  },
+  "measure": {
+    "computing": "actual",
+    "element": "number",
+    "filters": {
+      "type": "feature,bug,chore",
+      "state": "finished,delivered,accepted,rejected"
+    },
+    "scope": {
+      "$ref": "#/context/definitions/scopes/development"
+    }
+  }
+}
+```
+
+### FINISHED_STORIES_THREE_DAYS_AGO
+Returns the total number of Pivotal started stories for the period requested.
+``` json
+{
+  "computer": {
+    "name": "/indicators/FINISHED_STORIES_THREE_DAYS_AGO",
+    "url": "http://pt.computer.1212121212",
+    "apiVersion": "1",
+    "config": {
+      "ptkey": "1313131313",
+      "schedules": {
+        "24x7": "L-DT00:00-23:59/H",
+        "normal": "[{\"from\":\"1/1\",\"to\":\"6/14\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"6/15\",\"to\":\"9/15\",\"schedule\":\"L-VT08:30-15:00/H\"},{\"from\":\"9/16\",\"to\":\"12/23\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/24\",\"to\":\"12/24\",\"schedule\":\"L-VT09:00-13:00/H\"},{\"from\":\"12/25\",\"to\":\"12/30\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/31\",\"to\":\"12/31\",\"schedule\":\"L-VT09:00-13:00/H\"}]"
+      },
+      "holidays": "http://registry.1212121212/static/holidays.json"
+    }
+  },
+  "measure": {
+    "computing": "actual",
+    "element": "number",
+    "filters": {
+      "type": "feature,bug,chore",
+      "state": "finished,delivered,accepted,rejected"
+    },
+    "offset": -3,
+    "scope": {
+      "$ref": "#/context/definitions/scopes/development"
+    }
+  }
+}
+```
+
+### CURRENT_DELIVERED_POINTS
+Returns the total number of Pivotal started stories for the period requested.
+``` json
+{
+  "computer": {
+    "name": "/indicators/CURRENT_DELIVERED_POINTS",
+    "url": "http://pt.computer.1212121212",
+    "apiVersion": "1",
+    "config": {
+      "ptkey": "1313131313",
+      "schedules": {
+        "24x7": "L-DT00:00-23:59/H",
+        "normal": "[{\"from\":\"1/1\",\"to\":\"6/14\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"6/15\",\"to\":\"9/15\",\"schedule\":\"L-VT08:30-15:00/H\"},{\"from\":\"9/16\",\"to\":\"12/23\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/24\",\"to\":\"12/24\",\"schedule\":\"L-VT09:00-13:00/H\"},{\"from\":\"12/25\",\"to\":\"12/30\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/31\",\"to\":\"12/31\",\"schedule\":\"L-VT09:00-13:00/H\"}]"
+      },
+      "holidays": "http://registry.1212121212/static/holidays.json"
+    }
+  },
+  "measure": {
+    "computing": "actual",
+    "element": "points",
+    "filters": {
+      "type": "feature,bug,chore",
+      "state": "delivered,accepted,rejected"
+    },
+    "scope": {
+      "$ref": "#/context/definitions/scopes/development"
+    }
+  }
+}
+```
+
+### DELIVERED_POINTS_THREE_DAYS_AGO
+Returns the total number of Pivotal started stories for the period requested.
+``` json
+{
+  "computer": {
+    "name": "/indicators/DELIVERED_POINTS_THREE_DAYS_AGO",
+    "url": "http://pt.computer.1212121212",
+    "apiVersion": "1",
+    "config": {
+      "ptkey": "1313131313",
+      "schedules": {
+        "24x7": "L-DT00:00-23:59/H",
+        "normal": "[{\"from\":\"1/1\",\"to\":\"6/14\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"6/15\",\"to\":\"9/15\",\"schedule\":\"L-VT08:30-15:00/H\"},{\"from\":\"9/16\",\"to\":\"12/23\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/24\",\"to\":\"12/24\",\"schedule\":\"L-VT09:00-13:00/H\"},{\"from\":\"12/25\",\"to\":\"12/30\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/31\",\"to\":\"12/31\",\"schedule\":\"L-VT09:00-13:00/H\"}]"
+      },
+      "holidays": "http://registry.1212121212/static/holidays.json"
+    }
+  },
+  "measure": {
+    "computing": "actual",
+    "element": "points",
+    "filters": {
+      "type": "feature,bug,chore",
+      "state": "delivered,accepted,rejected"
+    },
+    "offset": -3,
+    "scope": {
+      "$ref": "#/context/definitions/scopes/development"
+    }
+  }
+}
+```
+
+### SHORT_CYCLE_TIME_STORIES
+Returns the total number of Pivotal started stories for the period requested.
+``` json
+{
+  "computer": {
+    "name": "/indicators/SHORT_CYCLE_TIME_STORIES",
+    "url": "http://pt.computer.1212121212",
+    "apiVersion": "1",
+    "config": {
+      "ptkey": "1313131313",
+      "schedules": {
+        "24x7": "L-DT00:00-23:59/H",
+        "normal": "[{\"from\":\"1/1\",\"to\":\"6/14\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"6/15\",\"to\":\"9/15\",\"schedule\":\"L-VT08:30-15:00/H\"},{\"from\":\"9/16\",\"to\":\"12/23\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/24\",\"to\":\"12/24\",\"schedule\":\"L-VT09:00-13:00/H\"},{\"from\":\"12/25\",\"to\":\"12/30\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/31\",\"to\":\"12/31\",\"schedule\":\"L-VT09:00-13:00/H\"}]"
+      },
+      "holidays": "http://registry.1212121212/static/holidays.json"
+    }
+  },
+  "measure": {
+    "computing": "actual",
+    "element": "number",
+    "filters": {
+      "type": "feature",
+      "state": "delivered,accepted,rejected",
+      "transition": {
+        "fromState": "started",
+        "toState": "delivered",
+        "duration": "< 60"
+      }
+    },
+    "scope": {
+      "$ref": "#/context/definitions/scopes/development"
+    }
+  }
+}
+```
+
+### FROZEN_STORIES_PERCENTAGE
+Returns the total number of Pivotal started stories for the period requested.
+``` json
+{
+  "computer": {
+    "name": "/indicators/FROZEN_STORIES_PERCENTAGE",
+    "url": "http://pt.computer.1212121212",
+    "apiVersion": "1",
+    "config": {
+      "ptkey": "1313131313",
+      "schedules": {
+        "24x7": "L-DT00:00-23:59/H",
+        "normal": "[{\"from\":\"1/1\",\"to\":\"6/14\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"6/15\",\"to\":\"9/15\",\"schedule\":\"L-VT08:30-15:00/H\"},{\"from\":\"9/16\",\"to\":\"12/23\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/24\",\"to\":\"12/24\",\"schedule\":\"L-VT09:00-13:00/H\"},{\"from\":\"12/25\",\"to\":\"12/30\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/31\",\"to\":\"12/31\",\"schedule\":\"L-VT09:00-13:00/H\"}]"
+      },
+      "holidays": "http://registry.1212121212/static/holidays.json"
+    }
+  },
+  "measure": {
+    "computing": "actual",
+    "element": {
+      "percentage": {
+        "transition": {
+          "toState": "unstarted,unscheduled",
+          "before": 26800
+        }
+      }
+    },
+    "filters": {
+      "transition": {
+        "toState": "unstarted,unscheduled",
+        "after": 0
+      }
+    },
+    "scope": {
+      "$ref": "#/context/definitions/scopes/development"
+    }
+  }
+}
+```
+
+## Guarantees
+
+### 1P_STORIES_SUCCESSFULLY_FINISHED_ON_TIME
+A one-point story should take less than a day to finish
+``` json
+{
+  "id": "1P_STORIES_SUCCESSFULLY_FINISHED_ON_TIME",
+  "notes": "#### Description\r\n```\r\nTP-1: 75% of 1-point stories should take less than 1 day to finish (from start to finish).\r\n```\r\n\r\n**Why?** This Team Practice (TP) represents our expectations for 1-point stories. 1-point stories should be concrete enough that the implementation strategy is mostly known to the team. This reduced uncertainty with the problem should lead to a more straightforward implementation and therefore should be completed in 1 day.\r\n\r\n**How?** When starting a project, it can be difficult to estimate how much work needs to be done in gathering information before a solution to a problem can be implemented. For this reason, at the beginning, learning time should be incorporated into pointing a story. However, as the members of the team become more comfortable with the codebase, a general implementation strategy of a problem can be discussed at the Iteration Planning Meeting (IPM) itself. This reduces uncertainty later on, and quick, easy tasks can therefore be assigned 1-point. These tasks should be finished within 24 hours after they are started.\r\n\r\nThe number presented is the percentage of 1-point stories that are finished within 24 hours.  The number should be above 75.",
+  "description": "A one-point story should take less than a day to finish",
+  "scope": {
+    "project": {
+      "name": "Project",
+      "description": "Project",
+      "type": "string",
+      "default": 1010101010
+    },
+    "class": {
+      "name": "Class",
+      "description": "Group some projects",
+      "type": "string",
+      "default": "CS169"
+    }
+  },
+  "of": [
+    {
+      "scope": {
+        "project": 1010101010
+      },
+      "objective": "PERCENTAGE_SUCCESSFULLY_FINISHED_1P_STORIES >= 75",
+      "with": {
+        "PERCENTAGE_SUCCESSFULLY_FINISHED_1P_STORIES": {}
+      },
+      "window": {
+        "type": "static",
+        "period": "daily",
+        "initial": "2018-01-01"
+      }
+    }
+  ]
+}
+```
+
+### 1P_STORIES_SUCCESSFULLY_DELIVERED_ON_TIME
+A one-point story should take less than three days to deliver
+``` json
+{
+  "id": "1P_STORIES_SUCCESSFULLY_DELIVERED_ON_TIME",
+  "notes": "#### Description\r\n```\r\nTP-2: 75% of 1-point stories should take less than 3 days to deliver (from start to deliver).\r\n```\r\n\r\n**Why?** This Team Practice (TP) represents our expectations for 1-point stories. 1-point stories should be concrete enough that the implementation strategy is mostly known to the team. This reduced uncertainty with the problem should lead to a more straightforward implementation and therefore should be completed in 1 day.\r\n\r\n**How?** When starting a project, it can be difficult to estimate how much work needs to be done in gathering information before a solution to a problem can be implemented. For this reason, at the beginning, learning time should be incorporated into pointing a story. However, as the members of the team become more comfortable with the codebase, a general implementation strategy of a problem can be discussed at the Iteration Planning Meeting (IPM) itself. This reduces uncertainty later on, and quick, easy tasks can therefore be assigned 1-point. From starting the story to delivering to the customer, the turnaround time for these tasks should not take long and should not exceed 3 days.\r\n\r\nThe number presented is the percentage of 1-point stories that are delivered within 72 hours. The number should be above 75.",
+  "description": "A one-point story should take less than three days to deliver",
+  "scope": {
+    "project": {
+      "name": "Project",
+      "description": "Project",
+      "type": "string",
+      "default": 1010101010
+    },
+    "class": {
+      "name": "Class",
+      "description": "Group some projects",
+      "type": "string",
+      "default": "CS169"
+    }
+  },
+  "of": [
+    {
+      "scope": {
+        "project": 1010101010
+      },
+      "objective": "PERCENTAGE_SUCCESSFULLY_DELIVERED_1P_STORIES >= 75",
+      "with": {
+        "PERCENTAGE_SUCCESSFULLY_DELIVERED_1P_STORIES": {}
+      },
+      "window": {
+        "type": "static",
+        "period": "daily",
+        "initial": "2018-01-01"
+      }
+    }
+  ]
+}
+```
+
+### MAJORITY_OF_1P_STORIES
+More than half of started features should be 1-point
+``` json
+{
+  "id": "MAJORITY_OF_1P_STORIES",
+  "notes": "#### Description\r\n```\r\nTP-3: 50% of the backlog stories should be 1 point.\r\n```\r\n\r\n**Why?** Stories with a high point imply uncertainties and risks. Having more 1-point stories allow the developers to make fewer decisions at a time and get more information to reduce the uncertainties for other stories.\r\n\r\n**How?** It can be difficult to have 1-point stories at the beginning because learning should be taken into consideration when you pointing a story. If learning has to happen before implementing a story, then this story may be more than one point.\r\n\r\nHowever, as you are more experienced in the technology and you learn more about the code base, you should have more 1-point stories that are concrete enough to know the implementation strategy beforehand.\r\n\r\nWhen you start a new feature, you may have to deal with stories that are large and uncertain. You can consider creating small �spike� stories to quickly get more information to reduce the uncertainties.\r\n\r\nThe number presented is the percentage of 1-point stories in the backlog. This number should be over 50.",
+  "description": "More than half of started features should be 1-point",
+  "scope": {
+    "project": {
+      "name": "Project",
+      "description": "Project",
+      "type": "string",
+      "default": 1010101010
+    },
+    "class": {
+      "name": "Class",
+      "description": "Group some projects",
+      "type": "string",
+      "default": "CS169"
+    }
+  },
+  "of": [
+    {
+      "scope": {
+        "project": 1010101010
+      },
+      "objective": "PERCENTAGE_OF_1P_STORIES >= 50",
+      "with": {
+        "PERCENTAGE_OF_1P_STORIES": {}
+      },
+      "window": {
+        "type": "static",
+        "period": "daily",
+        "initial": "2018-01-01"
+      }
+    }
+  ]
+}
+```
+
+### ONE_STORY_AT_A_TIME
+Only one story per person can be started at a time
+``` json
+{
+  "id": "ONE_STORY_AT_A_TIME",
+  "notes": "#### Description\r\n```\r\nTP-4: One person should work on only one story at a time.\r\n```\r\n\r\n**Why?** Multitasking causes the overhead of context switching. Furthermore, multitasking usually implies waiting as the contributor has to wait for others to continue working on a story. Thus, multitasking is an indicator of software engineering wastes (time spent that does not general values to the customer).\r\n\r\n**How?** When planning an iteration, discuss stories that might be dependent (or blocked) on completing others. These tasks should be properly organized to prevent situations of forced multitasking (one person�s task is dependent on a second person�s task to be completed, and that second person needs to stop whatever they are doing to complete that task).\r\n\r\nThis number is the number of stories that a person is working on. A person is working on a story if that person owns the story and the story's status is started. Your number should not be over 1.",
+  "description": "Only one story per person can be started at a time",
+  "scope": {
+    "member": {
+      "name": "Member",
+      "description": "Member of a project",
+      "type": "string"
+    },
+    "project": {
+      "name": "Project",
+      "description": "Project",
+      "type": "string",
+      "default": 1010101010
+    },
+    "class": {
+      "name": "Class",
+      "description": "Group some projects",
+      "type": "string",
+      "default": "CS169"
+    }
+  },
+  "of": [
+    {
+      "scope": {
+        "member": "*"
+      },
+      "objective": "NUMBER_OF_STARTED_STORIES <= 1",
+      "with": {
+        "NUMBER_OF_STARTED_STORIES": {}
+      },
+      "window": {
+        "type": "static",
+        "period": "daily",
+        "initial": "2018-01-01"
+      }
+    }
+  ]
+}
+```
+
+### NO_REMAINING_POINTS
+A team should finish the backlog by the end of an iteration
+``` json
+{
+  "id": "NO_REMAINING_POINTS",
+  "notes": "#### Description\r\n```\r\nTP-5: The sum of unfinished stories� points is 0 by the end of an iteration.\r\n```\r\n\r\n**Why?** This Team Practice (TP) describes the expectation for finishing the backlog. At the end of the iteration, all of the given tasks that were planned for that iteration should be completed and delivered to the customer. Any discrepancy in this shows an inaccuracy in assigning points to the stories in the planning phase.\r\n\r\n**How?** It is critical that as you gain experience with a project, programming language, and code base, that your (and your team�s) ability to properly assign work improves. Although this may be difficult in the first few iterations, your team should get significantly better at estimating how much work can be delivered to the customer at the end of an iteration. This is the goal of having Iteration Planning Meetings (to properly assign points for the next iteration), and Retrospectives (to reflect on how much work your team is able to complete in an iteration).\r\n\r\nThe number presented is the number of remaining points in the backlog.  Stories will be removed from the sum when they are `delivered`.  This number should not be over 0 by the end of an iteration.\r\n\r\nThe graph that shows the remaining points in the backlog is a [Burn down Chart](https://en.wikipedia.org/wiki/Burn_down_chart). It is widely used in Agile teams to track progress.",
+  "description": "A team should finish the backlog by the end of an iteration",
+  "scope": {
+    "project": {
+      "name": "Project",
+      "description": "Project",
+      "type": "string",
+      "default": 1010101010
+    },
+    "class": {
+      "name": "Class",
+      "description": "Group some projects",
+      "type": "string",
+      "default": "CS169"
+    }
+  },
+  "of": [
+    {
+      "scope": {
+        "project": 1010101010
+      },
+      "objective": "REMAINING_POINTS == 0",
+      "with": {
+        "REMAINING_POINTS": {}
+      },
+      "window": {
+        "type": "static",
+        "period": "biweekly",
+        "initial": "2018-01-01"
+      }
+    }
+  ]
+}
+```
+
+### INCREMENT_OF_FINISHED_STORIES
+Students should finish at least one story every three days
+``` json
+{
+  "id": "INCREMENT_OF_FINISHED_STORIES",
+  "notes": "#### Description\r\n```\r\nTP-6: Each person should have at least 1 story finished every three days.\r\n```\r\n\r\n**Why?** This TP encourages you to finish features at a sustainable pace. It�s important for members of the team to continually be finishing stories throughout the iteration. This ensures that stories are being properly broken down into actionable work, while also confirming a consistent pacing of work throughout the iteration (rather than all of the stories being completed last-minute).\r\n\r\n**How?** Much of this comes down to the planning phase (in the Iteration Planning Meeting). Breaking up stories into actionable, manageable pieces ensures that each team member can continually finish work throughout the iteration, rather than completing little work throughout the iteration and having everything finished near the end.\r\n\r\nThe number presented is the number of stories finished within the last three days.  This number should be above 1.",
+  "description": "Students should finish at least one story every three days",
+  "scope": {
+    "member": {
+      "name": "Member",
+      "description": "Member of a project",
+      "type": "string"
+    },
+    "project": {
+      "name": "Project",
+      "description": "Project",
+      "type": "string",
+      "default": 1010101010
+    },
+    "class": {
+      "name": "Class",
+      "description": "Group some projects",
+      "type": "string",
+      "default": "CS169"
+    }
+  },
+  "of": [
+    {
+      "scope": {
+        "member": "*"
+      },
+      "objective": "CURRENT_FINISHED_STORIES - FINISHED_STORIES_THREE_DAYS_AGO > 0",
+      "with": {
+        "FINISHED_STORIES_THREE_DAYS_AGO": {},
+        "CURRENT_FINISHED_STORIES": {}
+      },
+      "window": {
+        "type": "static",
+        "period": "daily",
+        "initial": "2018-01-01"
+      }
+    }
+  ]
+}
+```
+
+### INCREMENT_OF_DELIVERED_POINTS
+A team should deliver at least one point every three days
+``` json
+{
+  "id": "INCREMENT_OF_DELIVERED_POINTS",
+  "notes": "#### Description\r\n```\r\nTP-7: The team delivers (merge and deploy) at least 1 point every three days.\r\n```\r\n\r\n**Why?** This TP encourages you to deliver features at a sustainable pace. It�s important for members of the team to continually be delivering stories throughout the iteration. This ensures that stories are being properly broken down into actionable work, while also confirming a consistent pacing of work throughout the iteration (rather than all of the stories being completed last-minute).\r\n\r\n**How?** Much of this comes down to the planning phase (in the Iteration Planning Meeting). Breaking up stories into actionable, manageable pieces ensures that each team member can continually deliver work throughout the iteration, rather than completing little work throughout the iteration and having everything delivered near the end.\r\n\r\nThe number presented is the number of points delivered by the team within the last three days.  This number should be over 1.",
+  "description": "A team should deliver at least one point every three days",
+  "scope": {
+    "project": {
+      "name": "Project",
+      "description": "Project",
+      "type": "string",
+      "default": 1010101010
+    },
+    "class": {
+      "name": "Class",
+      "description": "Group some projects",
+      "type": "string",
+      "default": "CS169"
+    }
+  },
+  "of": [
+    {
+      "scope": {
+        "project": 1010101010
+      },
+      "objective": "CURRENT_DELIVERED_POINTS - DELIVERED_POINTS_THREE_DAYS_AGO > 0",
+      "with": {
+        "DELIVERED_POINTS_THREE_DAYS_AGO": {},
+        "CURRENT_DELIVERED_POINTS": {}
+      },
+      "window": {
+        "type": "static",
+        "period": "daily",
+        "initial": "2018-01-01"
+      }
+    }
+  ]
+}
+```
+
+### NO_SHORT_CYCLE_TIME_STORIES
+The cycle time of a story should not be less than 1 hour
+``` json
+{
+  "id": "NO_SHORT_CYCLE_TIME_STORIES",
+  "notes": "#### Description\r\n```\r\nTP-8: The cycle time of a story (time between started and delivered) should not be less than 1 hour.\r\n```\r\n\r\n**Why?** This Team Practice (TP) encourages you to use Pivotal Tracker properly to reflect the team�s plan and progress. A 1-hour cycle time between a story being started and delivered indicates that the backlog is not being updated as work is being done. The backlog should be maintained as the single source of truth as to what anyone is working on at any point, and should be up to date at any point in time.\r\n\r\n**How?** Make sure to keep the backlog updated as you are doing work. Make sure a story�s status (started, finished, delivered, accepted) is up to date at any given time, so that other members of the team have accurate information on what the team is working on.\r\n\r\nThe number presented is the number of stories with a cycle time less than one hour.  Cycle time is defined as the time from `started` to `delivered` (although in reality it is usually defined as the time from `started` to `accepted`).  This number should be less than 1.",
+  "description": "The cycle time of a story should not be less than 1 hour",
+  "scope": {
+    "project": {
+      "name": "Project",
+      "description": "Project",
+      "type": "string",
+      "default": 1010101010
+    },
+    "class": {
+      "name": "Class",
+      "description": "Group some projects",
+      "type": "string",
+      "default": "CS169"
+    }
+  },
+  "of": [
+    {
+      "scope": {
+        "project": 1010101010
+      },
+      "objective": "SHORT_CYCLE_TIME_STORIES == 0",
+      "with": {
+        "SHORT_CYCLE_TIME_STORIES": {}
+      },
+      "window": {
+        "type": "static",
+        "period": "daily",
+        "initial": "2018-01-01"
+      }
+    }
+  ]
+}
+```
+
+### FROZEN_STORIES_ARE_STABLE
+No backlog updates in the second week of an interation
+``` json
+{
+  "id": "FROZEN_STORIES_ARE_STABLE",
+  "notes": "#### Description\r\n```\r\nTP-9: No backlog updates after the IPM.\r\n```\r\n\r\n**Why?** This TP encourages you to use Pivotal Tracker properly to reflect the team�s plan and progress. Backlog updates are updates that move a story outside or into the backlog. In general, these updates should be avoided because the backlog is expected to be stable during the implementation phase of an iteration.\r\n**How?** Ensure Iteration Planning Meetings are being used effectively, as proper planning at the start of the story will ensure that there is no renegotiation and the backlog is stable throughout the iteration.\r\nThe number presented is the number of backlog updates.  This number should not be over 0 in the second week of an iteration.",
+  "description": "No backlog updates in the second week of an interation",
+  "scope": {
+    "project": {
+      "name": "Project",
+      "description": "Project",
+      "type": "string",
+      "default": 1010101010
+    },
+    "class": {
+      "name": "Class",
+      "description": "Group some projects",
+      "type": "string",
+      "default": "CS169"
+    }
+  },
+  "of": [
+    {
+      "scope": {
+        "project": 1010101010
+      },
+      "objective": "FROZEN_STORIES_PERCENTAGE == 100",
+      "with": {
+        "FROZEN_STORIES_PERCENTAGE": {}
+      },
+      "window": {
+        "type": "static",
+        "period": "biweekly",
+        "initial": "2018-01-01"
+      }
+    }
+  ]
+}
+```
+
