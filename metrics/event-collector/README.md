@@ -4,6 +4,73 @@ Metrics categorized by pattern and guarantees for the project Event Collector.
 
 # Index
 
+| Metric Type | Tool            | Event                    |
+|-------------|-----------------|--------------------------|
+| Number      | GitHub          | New Branches             |
+| Number      | GitHub          | Open PR                  |
+| Number      | GitHub          | Merged PR                |
+| Number      | GitHub          | Closed PR                |
+| Number      | Pivotal Tracker | Started Stories          |
+| Number      | Pivotal Tracker | Finished Stories         |
+| Number      | Pivotal Tracker | Delivered Stories        |
+| Number      | Pivotal Tracker | Accepted Stories         |
+| Number      | Heroku          | Releases                 |
+| Number      | Travis          | Builds                   |
+| Number      | Travis          | Failed Builds            |
+| Number      | CodeClimate     | Coverage Reports         |
+| Number      | CodeClimate     | Coverage Reports over 80 |
+| Value       | CodeClimate     | Coverage                 |
+| Value       | CodeClimate     | Coverage Offsetted       |
+| STDEV       | GitHub          | Daily Merged PR          |
+
+
+
+| Metric Type | Tool 1         | Event 1                  | Tool 2          | Event 2           | Correlation Type |
+|-------------|----------------|--------------------------|-----------------|-------------------|------------------|
+| Percentage  | GitHub         | New Branch               | Pivotal Tracker | Started Stories   | Time Window      |
+| Percentage  | GitHub         | New Branch               | Pivotal Tracker | Started Stories   | Bind             |
+| Percentage  | GitHub         | Open PR                  | Pivotal Tracker | Finished Stories  | Time Window      |
+| Percentage  | GitHub         | Open PR                  | Pivotal Tracker | Finished Stories  | Bind             |
+| Percentage  | GitHub         | Merge PR                 | Pivotal Tracker | Delivered Stories | Time Window      |
+| Percentage  | GitHub         | Merge PR                 | Pivotal Tracker | Delivered Stories | Bind             |
+| Percentage  | GitHub Wrapper | New Branch               | Pivotal Tracker | Started Stories   | Time Window      |
+| Percentage  | Heroku         | Releases                 | Pivotal Tracker | Delivered Stories | Time Window      |
+| Percentage  | Heroku         | Releases                 | Pivotal Tracker | Delivered Stories | Bind             |
+| Percentage  | Travis         | Successful Builds        | Travis          | Builds            | Time Window      |
+| Percentage  | CodeClimate    | Coverage reports over 80 | CodeClimate     | Coverage reports  | Time Window      |
+
+################################################################
+
+| Metric Type | Tool 1          | Event 1                  | Tool 2          | Event 2           | Correlation Type |
+|-------------|-----------------|--------------------------|-----------------|-------------------|------------------|
+| Number      | GitHub          | New Branches             | -               | -                 | -                |
+| Number      | GitHub          | Open PR                  | -               | -                 | -                |
+| Number      | GitHub          | Merged PR                | -               | -                 | -                |
+| Number      | GitHub          | Closed PR                | -               | -                 | -                |
+| Number      | Pivotal Tracker | Started Stories          | -               | -                 | -                |
+| Number      | Pivotal Tracker | Finished Stories         | -               | -                 | -                |
+| Number      | Pivotal Tracker | Delivered Stories        | -               | -                 | -                |
+| Number      | Pivotal Tracker | Accepted Stories         | -               | -                 | -                |
+| Number      | Heroku          | Releases                 | -               | -                 | -                |
+| Number      | Travis          | Builds                   | -               | -                 | -                |
+| Number      | Travis          | Failed Builds            | -               | -                 | -                |
+| Number      | CodeClimate     | Coverage Reports         | -               | -                 | -                |
+| Number      | CodeClimate     | Coverage Reports over 80 | -               | -                 | -                |
+| Value       | CodeClimate     | Coverage                 | -               | -                 | -                |
+| Value       | CodeClimate     | Coverage Offsetted       | -               | -                 | -                |
+| STDEV       | GitHub          | Daily Merged PR          | -               | -                 | -                |
+| Percentage  | GitHub          | New Branch               | Pivotal Tracker | Started Stories   | Time Window      |
+| Percentage  | GitHub          | New Branch               | Pivotal Tracker | Started Stories   | Bind             |
+| Percentage  | GitHub          | Open PR                  | Pivotal Tracker | Finished Stories  | Time Window      |
+| Percentage  | GitHub          | Open PR                  | Pivotal Tracker | Finished Stories  | Bind             |
+| Percentage  | GitHub          | Merge PR                 | Pivotal Tracker | Delivered Stories | Time Window      |
+| Percentage  | GitHub          | Merge PR                 | Pivotal Tracker | Delivered Stories | Bind             |
+| Percentage  | GitHub Wrapper  | New Branch               | Pivotal Tracker | Started Stories   | Time Window      |
+| Percentage  | Heroku          | Releases                 | Pivotal Tracker | Delivered Stories | Time Window      |
+| Percentage  | Heroku          | Releases                 | Pivotal Tracker | Delivered Stories | Bind             |
+| Percentage  | Travis          | Successful Builds        | Travis          | Builds            | Time Window      |
+| Percentage  | CodeClimate     | Coverage reports over 80 | CodeClimate     | Coverage reports  | Time Window      |
+
   * **[Metrics](#metrics)**
     * [PATTERN 1](#PATTERN_1) - Number of `[Event]` in `[Tool]` every `[Period]` by `[TEAM|MEMBER]`
       * [NUMBER_PT_STARTEDSTORIES](#NUMBER_PT_STARTEDSTORIES)
