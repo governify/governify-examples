@@ -1,0 +1,913 @@
+{
+    "id": "tpa-1010101010",
+    "version": "1.0.0",
+    "type": "agreement",
+    "context": {
+        "validity": {
+            "initial": "2017-10-15",
+            "timeZone": "America/Los_Angeles"
+        },
+        "infrastructure": {
+            "registry": "http://registry.bluejay.governify.io/api/v6",
+            "reporter": "http://reporter.bluejay.governify.io/api/v4",
+            "render": "https://ui.bluejay.governify.io/render?model=https://registry.bluejay.governify.io/api/v6/agreements/tpa-1010101010&view=/renders/tpa/default.html&ctrl=/renders/tpa/default.js",
+            "dashboard": "http://dashboard.bluejay.governify.io",
+            "scopeManager": "https://scopes.bluejay.governify.io/api/v1"
+        },
+        "definitions": {
+            "schemas": {},
+            "scopes": {
+                "development": {
+                    "project": {
+                        "name": "Project",
+                        "description": "Project",
+                        "type": "string",
+                        "default": "1010101010"
+                    },
+                    "class": {
+                        "name": "Class",
+                        "description": "Group some projects",
+                        "type": "string",
+                        "default": "2020202020"
+                    }
+                }
+            },
+            "computers": {
+                "pivotaltracker": {
+                    "url": "http://pt.collector.bluejay.governify.io",
+                    "apiVersion": "1",
+                    "config": {
+                        "ptkey": "1313131313",
+                        "schedules": {
+                            "24x7": "L-DT00:00-23:59/H",
+                            "normal": "[{\"from\":\"1/1\",\"to\":\"6/14\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"6/15\",\"to\":\"9/15\",\"schedule\":\"L-VT08:30-15:00/H\"},{\"from\":\"9/16\",\"to\":\"12/23\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/24\",\"to\":\"12/24\",\"schedule\":\"L-VT09:00-13:00/H\"},{\"from\":\"12/25\",\"to\":\"12/30\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/31\",\"to\":\"12/31\",\"schedule\":\"L-VT09:00-13:00/H\"}]"
+                        },
+                        "holidays": "http://registry.bluejay.governify.io/static/holidays.json"
+                    }
+                },
+                "eventcomputer": {
+                    "url": "http://event.collector.bluejay.governify.io",
+                    "endpoint": "/computations",
+                    "apiVersion": "2",
+                    "config": {
+                        "scopeManager": "http://scopes.bluejay.governify.io/api/v1/scopes/development"
+                    }
+                }
+            },
+            "dashboards": {
+                "main": {
+                    "default": true,
+                    "overlay": "http://assets.bluejay.governify.io/api/v1/public/grafana-dashboards/blocks/overlay.js",
+                    "overlay2": "blocks/overlay.js",
+                    "base": "http://assets.bluejay.governify.io/api/v1/public/grafana-dashboards/blocks/base.json",
+                    "base2": "blocks/base.json",
+                    "modifier": "http://assets.bluejay.governify.io/api/v1/public/grafana-dashboards/blocks/modifier.js",
+                    "modifier2": "blocks/modifier.js",
+                    "config": {
+                        "blocks": [
+                            {
+                                "type": "title-button-view-changer-github",
+                                "order": 1,
+                                "guarantee": "",
+                                "config": {
+                                    "title": "Simplified dashboard",
+                                    "button-text": "Go to Full View",
+                                    "old-view": "main",
+                                    "new-view": "complete&from=now-30d&to=now"
+                                }
+                            },
+                            {
+                                "type": "gauge",
+                                "order": 2,
+                                "guarantee": "75_PERCENT_RELEASE_MERGEPR_WITHIN_TEN_MINUTES",
+                                "config": {}
+                            },
+                            {
+                                "type": "gauge",
+                                "order": 3,
+                                "guarantee": "75_PERCENT_TRAVIS_SUCCESSFULBUILDS",
+                                "config": {}
+                            },
+                            {
+                                "type": "gauge-not-zero",
+                                "order": 4,
+                                "guarantee": "CORRELATION_STARTEDISSUES_NEWBRANCH",
+                                "config": {
+                                    "not-zero-metric": "metric_NUMBER_PT_STARTEDSTORIES"
+                                }
+                            },
+                            {
+                                "type": "gauge-not-zero",
+                                "order": 5,
+                                "guarantee": "CORRELATION_FINISHEDISSUES_OPENPR",
+                                "config": {
+                                    "not-zero-metric": "metric_NUMBER_PT_FINISHEDSTORIES"
+                                }
+                            },
+                            {
+                                "type": "gauge-not-zero",
+                                "order": 6,
+                                "guarantee": "CORRELATION_DELIVEREDISSUES_MERGEDPR",
+                                "config": {
+                                    "not-zero-metric": "metric_NUMBER_PT_DELIVEREDSTORIES"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "complete": {
+                    "default": true,
+                    "overlay": "http://assets.bluejay.governify.io/api/v1/public/grafana-dashboards/blocks/overlay.js",
+                    "overlay2": "blocks/overlay.js",
+                    "base": "http://assets.bluejay.governify.io/api/v1/public/grafana-dashboards/blocks/base.json",
+                    "base2": "blocks/base.json",
+                    "modifier": "http://assets.bluejay.governify.io/api/v1/public/grafana-dashboards/blocks/modifier.js",
+                    "config": {
+                        "blocks": [
+                            {
+                                "type": "title-button-view-changer-github",
+                                "order": 1,
+                                "guarantee": "",
+                                "config": {
+                                    "title": "Full dashboard",
+                                    "button-text": "Simplified View",
+                                    "old-view": "complete&from=now-30d&to=now",
+                                    "new-view": "main"
+                                }
+                            },
+                            {
+                                "type": "gauge-time",
+                                "order": 2,
+                                "guarantee": "75_PERCENT_RELEASE_MERGEPR_WITHIN_TEN_MINUTES",
+                                "config": {
+                                    "time-graph-title": "Percentage of correlation between PT Releases/GH Merged PR"
+                                }
+                            },
+                            {
+                                "type": "gauge-time",
+                                "order": 3,
+                                "guarantee": "75_PERCENT_TRAVIS_SUCCESSFULBUILDS",
+                                "config": {
+                                    "time-graph-title": "Percentage Travis Successful builds/builds"
+                                }
+                            },
+                            {
+                                "type": "gauge-time-correlation",
+                                "order": 4,
+                                "guarantee": "CORRELATION_STARTEDISSUES_NEWBRANCH",
+                                "config": {
+                                    "x-axis-metric": "metric_NUMBER_PT_STARTEDSTORIES",
+                                    "y-axis-metric": "metric_COUNT_NEWBRANCH_STARTEDSTORIES",
+                                    "not-zero-metric": "metric_NUMBER_PT_STARTEDSTORIES",
+                                    "time-graph-title": "Percentage of correlation between GH New Branches/PT Started Stories"
+                                }
+                            },
+                            {
+                                "type": "gauge-time-correlation",
+                                "order": 5,
+                                "guarantee": "CORRELATION_FINISHEDISSUES_OPENPR",
+                                "config": {
+                                    "x-axis-metric": "metric_NUMBER_PT_FINISHEDSTORIES",
+                                    "y-axis-metric": "metric_COUNT_OPENPR_FINISHEDSTORIES",
+                                    "not-zero-metric": "metric_NUMBER_PT_FINISHEDSTORIES",
+                                    "time-graph-title": "Percentage of correlation between GH Opened PR/PT Finished Stories"
+                                }
+                            },
+                            {
+                                "type": "gauge-time-correlation",
+                                "order": 7,
+                                "guarantee": "CORRELATION_DELIVEREDISSUES_MERGEDPR",
+                                "config": {
+                                    "x-axis-metric": "metric_NUMBER_PT_DELIVEREDSTORIES",
+                                    "y-axis-metric": "metric_COUNT_MERGEPR_DELIVEREDSTORIES",
+                                    "not-zero-metric": "metric_NUMBER_PT_DELIVEREDSTORIES",
+                                    "time-graph-title": "Percentage of correlation between GH Merged PR/PT Delivered Stories"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "terms": {
+        "metrics": {
+            "NUMBER_GHQL_STARTEDISSUES": {
+                "computer": {
+                    "$ref": "#/context/definitions/computers/eventcomputer"
+                },
+                "measure": {
+                    "computing": "actual",
+                    "element": "number",
+                    "event": {
+                        "githubGQL": {
+                            "custom": {
+                                "type": "graphQL",
+                                "steps": {
+                                    "0": {
+                                        "type": "queryGetObject",
+                                        "query": "{repository(name: \"%PROJECT.github.repository%\", owner: \"%PROJECT.github.repoOwner%\") {projects(first: 1) {nodes {name,columns(first: 10) {nodes {name,cards(first: 100) {totalCount,nodes {column {name,},content {... on Issue {url,number,title,createdAt,updatedAt,assignees(first: 10) {nodes {login,},},},},},},},},},},},},"
+                                    },
+                                    "1": {
+                                        "type": "objectGetSubObjects",
+                                        "location": "data.repository.projects.nodes.0.columns.nodes"
+                                    },
+                                    "2": {
+                                        "type": "objectsFilterObject",
+                                        "filters": [
+                                            "name == 'Started'"
+                                        ],
+                                        "keep": "first"
+                                    },
+                                    "3": {
+                                        "type": "objectGetSubObjects",
+                                        "location": "cards.nodes"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "scope": {
+                        "$ref": "#/context/definitions/scopes/development"
+                    }
+                }
+            },
+            "NUMBER_GHQL_FINISHEDISSUES": {
+                "computer": {
+                    "$ref": "#/context/definitions/computers/eventcomputer"
+                },
+                "measure": {
+                    "computing": "actual",
+                    "element": "number",
+                    "event": {
+                        "githubGQL": {
+                            "custom": {
+                                "type": "graphQL",
+                                "steps": {
+                                    "0": {
+                                        "type": "queryGetObject",
+                                        "query": "{repository(name: \"%PROJECT.github.repository%\", owner: \"%PROJECT.github.repoOwner%\") {projects(first: 1) {nodes {name,columns(first: 10) {nodes {name,cards(first: 100) {totalCount,nodes {column {name,},content {... on Issue {url,number,title,createdAt,updatedAt,assignees(first: 10) {nodes {login,},},},},},},},},},},},},"
+                                    },
+                                    "1": {
+                                        "type": "objectGetSubObjects",
+                                        "location": "data.repository.projects.nodes.0.columns.nodes"
+                                    },
+                                    "2": {
+                                        "type": "objectsFilterObject",
+                                        "filters": [
+                                            "name == 'Finished'"
+                                        ],
+                                        "keep": "first"
+                                    },
+                                    "3": {
+                                        "type": "objectGetSubObjects",
+                                        "location": "cards.nodes"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "scope": {
+                        "$ref": "#/context/definitions/scopes/development"
+                    }
+                }
+            },
+            "NUMBER_GHQL_DELIVEREDISSUES": {
+                "computer": {
+                    "$ref": "#/context/definitions/computers/eventcomputer"
+                },
+                "measure": {
+                    "computing": "actual",
+                    "element": "number",
+                    "event": {
+                        "githubGQL": {
+                            "custom": {
+                                "type": "graphQL",
+                                "steps": {
+                                    "0": {
+                                        "type": "queryGetObject",
+                                        "query": "{repository(name: \"%PROJECT.github.repository%\", owner: \"%PROJECT.github.repoOwner%\") {projects(first: 1) {nodes {name,columns(first: 10) {nodes {name,cards(first: 100) {totalCount,nodes {column {name,},content {... on Issue {url,number,title,createdAt,updatedAt,assignees(first: 10) {nodes {login,},},},},},},},},},},},},"
+                                    },
+                                    "1": {
+                                        "type": "objectGetSubObjects",
+                                        "location": "data.repository.projects.nodes.0.columns.nodes"
+                                    },
+                                    "2": {
+                                        "type": "objectsFilterObject",
+                                        "filters": [
+                                            "name == 'Delivered'"
+                                        ],
+                                        "keep": "first"
+                                    },
+                                    "3": {
+                                        "type": "objectGetSubObjects",
+                                        "location": "cards.nodes"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "scope": {
+                        "$ref": "#/context/definitions/scopes/development"
+                    }
+                }
+            },
+            "NUMBER_GHQL_ACCEPTEDISSUES": {
+                "computer": {
+                    "$ref": "#/context/definitions/computers/eventcomputer"
+                },
+                "measure": {
+                    "computing": "actual",
+                    "element": "number",
+                    "event": {
+                        "githubGQL": {
+                            "custom": {
+                                "type": "graphQL",
+                                "steps": {
+                                    "0": {
+                                        "type": "queryGetObject",
+                                        "query": "{repository(name: \"%PROJECT.github.repository%\", owner: \"%PROJECT.github.repoOwner%\") {projects(first: 1) {nodes {name,columns(first: 10) {nodes {name,cards(first: 100) {totalCount,nodes {column {name,},content {... on Issue {url,number,title,createdAt,updatedAt,assignees(first: 10) {nodes {login,},},},},},},},},},},},},"
+                                    },
+                                    "1": {
+                                        "type": "objectGetSubObjects",
+                                        "location": "data.repository.projects.nodes.0.columns.nodes"
+                                    },
+                                    "2": {
+                                        "type": "objectsFilterObject",
+                                        "filters": [
+                                            "name == 'Accepted'"
+                                        ],
+                                        "keep": "first"
+                                    },
+                                    "3": {
+                                        "type": "objectGetSubObjects",
+                                        "location": "cards.nodes"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "scope": {
+                        "$ref": "#/context/definitions/scopes/development"
+                    }
+                }
+            },
+            "NUMBER_GH_NEWBRANCH": {
+                "computer": {
+                    "$ref": "#/context/definitions/computers/eventcomputer"
+                },
+                "measure": {
+                    "computing": "actual",
+                    "element": "number",
+                    "event": {
+                        "percentage": {
+                            "related": {
+                                "github": {
+                                    "events": {
+                                        "type": "CreateEvent",
+                                        "payload": {
+                                            "ref_type": "branch"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "scope": {
+                        "$ref": "#/context/definitions/scopes/development"
+                    }
+                }
+            },
+            "NUMBER_GH_OPENPR": {
+                "computer": {
+                    "$ref": "#/context/definitions/computers/eventcomputer"
+                },
+                "measure": {
+                    "computing": "actual",
+                    "element": "number",
+                    "event": {
+                        "percentage": {
+                            "related": {
+                                "github": {
+                                    "allPR": {}
+                                }
+                            }
+                        }
+                    },
+                    "scope": {
+                        "$ref": "#/context/definitions/scopes/development"
+                    }
+                }
+            },
+            "NUMBER_GH_MERGEDPR": {
+                "computer": {
+                    "$ref": "#/context/definitions/computers/eventcomputer"
+                },
+                "measure": {
+                    "computing": "actual",
+                    "element": "number",
+                    "event": {
+                        "percentage": {
+                            "related": {
+                                "github": {
+                                    "mergedPR": {}
+                                }
+                            }
+                        }
+                    },
+                    "scope": {
+                        "$ref": "#/context/definitions/scopes/development"
+                    }
+                }
+            },
+            "PERCENTAGE_STARTEDISSUES_NEWBRANCH": {
+                "computer": {
+                    "$ref": "#/context/definitions/computers/eventcomputer"
+                },
+                "measure": {
+                    "computing": "actual",
+                    "element": {
+                        "percentage": {
+                            "related": {
+                                "githubGQL": {
+                                    "custom": {
+                                        "type": "graphQL",
+                                        "steps": {
+                                            "0": {
+                                                "type": "queryGetObject",
+                                                "query": "{repository(name: \"%PROJECT.github.repository%\", owner: \"%PROJECT.github.repoOwner%\") {projects(first: 1) {nodes {name,columns(first: 10) {nodes {name,cards(first: 100) {totalCount,nodes {column {name,},content {... on Issue {url,number,title,createdAt,updatedAt,assignees(first: 10) {nodes {login,},},},},},},},},},},},},"
+                                            },
+                                            "1": {
+                                                "type": "objectGetSubObjects",
+                                                "location": "data.repository.projects.nodes.0.columns.nodes"
+                                            },
+                                            "2": {
+                                                "type": "objectsFilterObject",
+                                                "filters": [
+                                                    "name == 'Started'"
+                                                ],
+                                                "keep": "first"
+                                            },
+                                            "3": {
+                                                "type": "objectGetSubObjects",
+                                                "location": "cards.nodes"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "event": {
+                        "github": {
+                            "events": {
+                                "type": "CreateEvent",
+                                "payload": {
+                                    "ref_type": "branch",
+                                    "ref": "#CONTAINS(content.number)#"
+                                }
+                            }
+                        }
+                    },
+                    "scope": {
+                        "$ref": "#/context/definitions/scopes/development"
+                    }
+                }
+            },
+            "COUNT_STARTEDISSUES_NEWBRANCH": {
+                "computer": {
+                    "$ref": "#/context/definitions/computers/eventcomputer"
+                },
+                "measure": {
+                    "computing": "actual",
+                    "element": {
+                        "count": {
+                            "related": {
+                                "githubGQL": {
+                                    "custom": {
+                                        "type": "graphQL",
+                                        "steps": {
+                                            "0": {
+                                                "type": "queryGetObject",
+                                                "query": "{repository(name: \"%PROJECT.github.repository%\", owner: \"%PROJECT.github.repoOwner%\") {projects(first: 1) {nodes {name,columns(first: 10) {nodes {name,cards(first: 100) {totalCount,nodes {column {name,},content {... on Issue {url,number,title,createdAt,updatedAt,assignees(first: 10) {nodes {login,},},},},},},},},},},},},"
+                                            },
+                                            "1": {
+                                                "type": "objectGetSubObjects",
+                                                "location": "data.repository.projects.nodes.0.columns.nodes"
+                                            },
+                                            "2": {
+                                                "type": "objectsFilterObject",
+                                                "filters": [
+                                                    "name == 'Started'"
+                                                ],
+                                                "keep": "first"
+                                            },
+                                            "3": {
+                                                "type": "objectGetSubObjects",
+                                                "location": "cards.nodes"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "event": {
+                        "github": {
+                            "events": {
+                                "type": "CreateEvent",
+                                "payload": {
+                                    "ref_type": "branch",
+                                    "ref": "#CONTAINS(content.number)#"
+                                }
+                            }
+                        }
+                    },
+                    "scope": {
+                        "$ref": "#/context/definitions/scopes/development"
+                    }
+                }
+            },
+            "PERCENTAGE_FINISHEDISSUES_OPENPR": {
+                "computer": {
+                    "$ref": "#/context/definitions/computers/eventcomputer"
+                },
+                "measure": {
+                    "computing": "actual",
+                    "element": {
+                        "percentage": {
+                            "related": {
+                                "githubGQL": {
+                                    "custom": {
+                                        "type": "graphQL",
+                                        "steps": {
+                                            "0": {
+                                                "type": "queryGetObject",
+                                                "query": "{repository(name: \"%PROJECT.github.repository%\", owner: \"%PROJECT.github.repoOwner%\") {projects(first: 1) {nodes {name,columns(first: 10) {nodes {name,cards(first: 100) {totalCount,nodes {column {name,},content {... on Issue {url,number,title,createdAt,updatedAt,assignees(first: 10) {nodes {login,},},},},},},},},},},},},"
+                                            },
+                                            "1": {
+                                                "type": "objectGetSubObjects",
+                                                "location": "data.repository.projects.nodes.0.columns.nodes"
+                                            },
+                                            "2": {
+                                                "type": "objectsFilterObject",
+                                                "filters": [
+                                                    "name == 'Finished'"
+                                                ],
+                                                "keep": "first"
+                                            },
+                                            "3": {
+                                                "type": "objectGetSubObjects",
+                                                "location": "cards.nodes"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "event": {
+                        "github": {
+                            "allPR": {}
+                        }
+                    },
+                    "scope": {
+                        "$ref": "#/context/definitions/scopes/development"
+                    }
+                }
+            },
+            "COUNT_FINISHEDISSUES_OPENPR": {
+                "computer": {
+                    "$ref": "#/context/definitions/computers/eventcomputer"
+                },
+                "measure": {
+                    "computing": "actual",
+                    "element": {
+                        "count": {
+                            "related": {
+                                "githubGQL": {
+                                    "custom": {
+                                        "type": "graphQL",
+                                        "steps": {
+                                            "0": {
+                                                "type": "queryGetObject",
+                                                "query": "{repository(name: \"%PROJECT.github.repository%\", owner: \"%PROJECT.github.repoOwner%\") {projects(first: 1) {nodes {name,columns(first: 10) {nodes {name,cards(first: 100) {totalCount,nodes {column {name,},content {... on Issue {url,number,title,createdAt,updatedAt,assignees(first: 10) {nodes {login,},},},},},},},},},},},},"
+                                            },
+                                            "1": {
+                                                "type": "objectGetSubObjects",
+                                                "location": "data.repository.projects.nodes.0.columns.nodes"
+                                            },
+                                            "2": {
+                                                "type": "objectsFilterObject",
+                                                "filters": [
+                                                    "name == 'Finished'"
+                                                ],
+                                                "keep": "first"
+                                            },
+                                            "3": {
+                                                "type": "objectGetSubObjects",
+                                                "location": "cards.nodes"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "event": {
+                        "github": {
+                            "allPR": {}
+                        }
+                    },
+                    "scope": {
+                        "$ref": "#/context/definitions/scopes/development"
+                    }
+                }
+            },
+            "PERCENTAGE_DELIVEREDISSUES_MERGEDPR": {
+                "computer": {
+                    "$ref": "#/context/definitions/computers/eventcomputer"
+                },
+                "measure": {
+                    "computing": "actual",
+                    "element": {
+                        "percentage": {
+                            "related": {
+                                "githubGQL": {
+                                    "custom": {
+                                        "type": "graphQL",
+                                        "steps": {
+                                            "0": {
+                                                "type": "queryGetObject",
+                                                "query": "{repository(name: \"%PROJECT.github.repository%\", owner: \"%PROJECT.github.repoOwner%\") {projects(first: 1) {nodes {name,columns(first: 10) {nodes {name,cards(first: 100) {totalCount,nodes {column {name,},content {... on Issue {url,number,title,createdAt,updatedAt,assignees(first: 10) {nodes {login,},},},},},},},},},},},},"
+                                            },
+                                            "1": {
+                                                "type": "objectGetSubObjects",
+                                                "location": "data.repository.projects.nodes.0.columns.nodes"
+                                            },
+                                            "2": {
+                                                "type": "objectsFilterObject",
+                                                "filters": [
+                                                    "name == 'Finished'"
+                                                ],
+                                                "keep": "Delivered"
+                                            },
+                                            "3": {
+                                                "type": "objectGetSubObjects",
+                                                "location": "cards.nodes"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "event": {
+                        "github": {
+                            "mergedPR": {}
+                        }
+                    },
+                    "scope": {
+                        "$ref": "#/context/definitions/scopes/development"
+                    }
+                }
+            },
+            "COUNT_DELIVEREDISSUES_MERGEDPR": {
+                "computer": {
+                    "$ref": "#/context/definitions/computers/eventcomputer"
+                },
+                "measure": {
+                    "computing": "actual",
+                    "element": {
+                        "count": {
+                            "related": {
+                                "githubGQL": {
+                                    "custom": {
+                                        "type": "graphQL",
+                                        "steps": {
+                                            "0": {
+                                                "type": "queryGetObject",
+                                                "query": "{repository(name: \"%PROJECT.github.repository%\", owner: \"%PROJECT.github.repoOwner%\") {projects(first: 1) {nodes {name,columns(first: 10) {nodes {name,cards(first: 100) {totalCount,nodes {column {name,},content {... on Issue {url,number,title,createdAt,updatedAt,assignees(first: 10) {nodes {login,},},},},},},},},},},},},"
+                                            },
+                                            "1": {
+                                                "type": "objectGetSubObjects",
+                                                "location": "data.repository.projects.nodes.0.columns.nodes"
+                                            },
+                                            "2": {
+                                                "type": "objectsFilterObject",
+                                                "filters": [
+                                                    "name == 'Delivered'"
+                                                ],
+                                                "keep": "first"
+                                            },
+                                            "3": {
+                                                "type": "objectGetSubObjects",
+                                                "location": "cards.nodes"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "event": {
+                        "github": {
+                            "mergedPR": {}
+                        }
+                    },
+                    "scope": {
+                        "$ref": "#/context/definitions/scopes/development"
+                    }
+                }
+            },
+            "PERCENTAGE_RELEASE_MERGEPR": {
+                "computer": {
+                    "$ref": "#/context/definitions/computers/eventcomputer"
+                },
+                "measure": {
+                    "computing": "actual",
+                    "element": {
+                        "percentage": {
+                            "related": {
+                                "heroku": {
+                                    "releases": {
+                                        "status": "succeeded",
+                                        "description": "%CONTAINS%Deploy"
+                                    }
+                                },
+                                "window": 600
+                            }
+                        }
+                    },
+                    "event": {
+                        "github": {
+                            "mergedPR": {}
+                        }
+                    },
+                    "scope": {
+                        "$ref": "#/context/definitions/scopes/development"
+                    }
+                }
+            },
+            "PERCENTAGE_TR_SUCCESSFULBUILDS_TR_BUILDS": {
+                "computer": {
+                    "$ref": "#/context/definitions/computers/eventcomputer"
+                },
+                "measure": {
+                    "computing": "actual",
+                    "element": {
+                        "percentage": {
+                            "related": {
+                                "travis": {
+                                    "builds_public": {
+                                        "@type": "build",
+                                        "state": "passed"
+                                    }
+                                },
+                                "window": 1
+                            }
+                        }
+                    },
+                    "event": {
+                        "travis": {
+                            "builds_public": {
+                                "@type": "build"
+                            }
+                        }
+                    },
+                    "scope": {
+                        "$ref": "#/context/definitions/scopes/development"
+                    }
+                }
+            }
+        },
+        "guarantees": [
+            {
+                "id": "75_PERCENT_RELEASE_MERGEPR_WITHIN_TEN_MINUTES",
+                "notes": "#### Description\r\n```\r\nTP-1: At least 75% of releases(H) must match a the merge of a PR(GH) into master within ten minutes.",
+                "description": "At least 75% of releases must match the merge of a PR into master within ten minutes.",
+                "scope": {
+                    "$ref": "#/context/definitions/scopes/development"
+                },
+                "of": [
+                    {
+                        "scope": {
+                            "project": "1010101010"
+                        },
+                        "objective": "PERCENTAGE_RELEASE_MERGEPR >= 75",
+                        "with": {
+                            "PERCENTAGE_RELEASE_MERGEPR": {}
+                        },
+                        "window": {
+                            "type": "static",
+                            "period": "daily",
+                            "initial": "2018-01-01"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "75_PERCENT_TRAVIS_SUCCESSFULBUILDS",
+                "notes": "#### Description\r\n```\r\nTP-1: At least 80% of Travis builds should pass correctly.",
+                "description": "At least 75% of Travis builds should pass correctly",
+                "scope": {
+                    "$ref": "#/context/definitions/scopes/development"
+                },
+                "of": [
+                    {
+                        "scope": {
+                            "project": "1010101010"
+                        },
+                        "objective": "PERCENTAGE_TR_SUCCESSFULBUILDS_TR_BUILDS >= 75",
+                        "with": {
+                            "PERCENTAGE_TR_SUCCESSFULBUILDS_TR_BUILDS": {}
+                        },
+                        "window": {
+                            "type": "static",
+                            "period": "weekly",
+                            "initial": "2018-01-01"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "CORRELATION_STARTEDISSUES_NEWBRANCH",
+                "notes": "#### Description\r\n```\r\nTP-1: At least 75% of finished stories(PT) must match creation of a PR(GH) within a day.",
+                "description": "Correlation between new branches and started stories for the whole class",
+                "scope": {
+                    "$ref": "#/context/definitions/scopes/development"
+                },
+                "of": [
+                    {
+                        "scope": {
+                            "project": "1010101010"
+                        },
+                        "objective": "PERCENTAGE_STARTEDISSUES_NEWBRANCH >= 75",
+                        "with": {
+                            "PERCENTAGE_STARTEDISSUES_NEWBRANCH": {},
+                            "COUNT_STARTEDISSUES_NEWBRANCH": {},
+                            "NUMBER_GH_NEWBRANCH": {}
+                        },
+                        "window": {
+                            "type": "static",
+                            "period": "daily",
+                            "initial": "2018-01-01"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "CORRELATION_FINISHEDISSUES_OPENPR",
+                "notes": "#### Description\r\n```\r\nTP-1: At least 75% of finished stories(PT) must match creation of a PR(GH) within a day.",
+                "description": "Correlation between open pull request and finished stories for the whole class",
+                "scope": {
+                    "$ref": "#/context/definitions/scopes/development"
+                },
+                "of": [
+                    {
+                        "scope": {
+                            "project": "1010101010"
+                        },
+                        "objective": "PERCENTAGE_FINISHEDISSUES_OPENPR >= 75",
+                        "with": {
+                            "PERCENTAGE_FINISHEDISSUES_OPENPR": {},
+                            "COUNT_FINISHEDISSUES_OPENPR": {},
+                            "NUMBER_GH_OPENPR": {}
+                        },
+                        "window": {
+                            "type": "static",
+                            "period": "daily",
+                            "initial": "2018-01-01"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "CORRELATION_DELIVEREDISSUES_MERGEDPR",
+                "notes": "#### Description\r\n```\r\nTP-1: At least 75% of finished stories(PT) must match creation of a PR(GH) within a day.",
+                "description": "Correlation between merged pull requests and delivered stories for the whole class",
+                "scope": {
+                    "$ref": "#/context/definitions/scopes/development"
+                },
+                "of": [
+                    {
+                        "scope": {
+                            "project": "1010101010"
+                        },
+                        "objective": "PERCENTAGE_DELIVEREDISSUES_MERGEDPR >= 75",
+                        "with": {
+                            "PERCENTAGE_DELIVEREDISSUES_MERGEDPR": {},
+                            "COUNT_DELIVEREDISSUES_MERGEDPR": {},
+                            "NUMBER_GH_MERGEDPR": {}
+                        },
+                        "window": {
+                            "type": "static",
+                            "period": "daily",
+                            "initial": "2018-01-01"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
